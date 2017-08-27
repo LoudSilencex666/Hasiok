@@ -13,7 +13,7 @@
             x : 0, //koordynat x
             y : 0, //koordynat y
             background : {}, //obiekt tła
-            initialization : function() { //generowanie tła na ekranie gry
+            backgroundInitialization : function() { //generowanie tła na ekranie gry
                 idMenuTexture = PIXI.loader.resources["menuTileset"].textures; // odnośnik by nie musieć pisać tego PIXI (patrz forma 3 w poradniku o displejowaniu spritów z tileseta)
                 this.background = new PIXI.Sprite(idMenuTexture["menuBackground.png"]); //Tworzenie Sprita i przypisanie go do nazwy background
                 this.background.position.set(this.x, this.y); //pozycja backgroundu
@@ -21,10 +21,11 @@
                 this.background.height = window.innerHeight; //wysokość
                 mainContainer.addChild(this.background); //dodawanie sprite'a (backgroundu) do głównego containera -to co w głównym się znajdzie to zostaje pokazanie na ekranie
             }
+            
         }
       
         function setup() {
-            menu.initialization();    //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
+            menu.backgroundInitialization();    //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
             
             renderer.render(mainContainer); //ukazanie na ekranie naszego mainContainer
         }
