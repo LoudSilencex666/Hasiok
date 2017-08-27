@@ -1,0 +1,30 @@
+{"frames": {
+
+"menuBackground.png":
+{
+	"frame": {"x":0,"y":0,"w":1920,"h":1080},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
+	"sourceSize": {"w":1920,"h":1080},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"welcome_twitch.png":
+{
+	"frame": {"x":0,"y":1080,"w":960,"h":320},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":320},
+	"sourceSize": {"w":960,"h":320},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "menuTileset.png",
+	"format": "RGBA8888",
+	"size": {"w":1920,"h":1400},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:12fdba44f30022b06c9d11aef6962f00:a6064aa97d6454fc5dd76fb9c0c87ffd:9a274df377f3133edf7d0836970cc9fa$"
+}
+}

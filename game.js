@@ -2,28 +2,33 @@
         let stage = new PIXI.Container();
         const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.view);
-       
-        
-        
 
         PIXI.loader
-        .add("testTileset", "files/images/testTilesets/testName.json")
+        .add("menuTileset", "files/images/menuTilesets/menuTileset.json")
         .load(setup);
 
-        
+        let idMenuTexture, background;
+
+        let menu = {
+            x : 0,
+            y : 0,
+            background : {},
+            initialization: function() {
+                idMenuTexture = PIXI.loader.resources["menuTileset"].textures;
+                this.background = new PIXI.Sprite(idMenuTexture["menuBackground.png"]);
+                this.background.position.set(this.x, this.y);
+                this.background.width = window.innerWidth;
+                this.background.height = window.innerHeight;
+                stage.addChild(this.background);
+            }
+        }
+
+       
+
+
       
         function setup() {
-            let testTexture = PIXI.loader.resources["testTileset"].textures;
-            let sprite1 = new PIXI.Sprite(testTexture["test1.png"]);
-            let sprite2 = new PIXI.Sprite(testTexture["test2.png"]);
-            let sprite3 = new PIXI.Sprite(testTexture["test3.png"]);
-            // ale zaczepisty komentasz tusz pod szpritami
-
-            sprite1.position.set(100, 100);
-            sprite2.position.set(600, 400);
-            sprite3.position.set(1000, 700);
-            
-            stage.addChild(sprite1, sprite2, sprite3);
+            menu.initialization();        
             
             renderer.render(stage);
         }
