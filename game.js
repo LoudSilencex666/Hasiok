@@ -27,7 +27,12 @@
             },
             newGame : {},
             newGameInitialization : function() {
-                
+                idMenuTexture = PIXI.loader.resources["menuTileset"].textures; 
+                this.newGame = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);    
+                this.newGame.width = 200; 
+                this.newGame.height = 80; 
+                this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/2 - this.newGame.height/2); 
+                mainContainer.addChild(this.newGame);
             }
 
 
@@ -35,7 +40,8 @@
         }
       
         function setup() {
-            menu.backgroundInitialization();    //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
+            menu.backgroundInitialization(); //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
+            menu.newGameInitialization();    
             
             renderer.render(mainContainer); //ukazanie na ekranie naszego mainContainer
         }
