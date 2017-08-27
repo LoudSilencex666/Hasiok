@@ -24,7 +24,7 @@ let menu = {
     logoW : 0,
     logoH : 0,
     logo : {},
-    logoInitialization: function {
+    logoInitialization: function() {
 
     },
 
