@@ -21,10 +21,18 @@
                 this.background.height = window.innerHeight; //wysokość
                 mainContainer.addChild(this.background); //dodawanie sprite'a (backgroundu) do głównego containera -to co w głównym się znajdzie to zostaje pokazanie na ekranie
             },
+
+            musicx : 898,
+            musicy : 694,
             music : {},
             musicInitialization : function() {
+                idMenuTexture = PIXI.loader.resources["menuTileset"].textures;
+                this.music = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);
+                this.music.position.set(this.musicx, this.musicy);
+                mainContainer.addChild(this.music);
 
             },
+
             newGame : {},
             newGameInitialization : function() {
                 idMenuTexture = PIXI.loader.resources["menuTileset"].textures; 
@@ -40,6 +48,7 @@
         }
       
         function setup() {
+            menu.musicInitialization();
             menu.backgroundInitialization(); //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
             menu.newGameInitialization();    
             
