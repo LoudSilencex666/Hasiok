@@ -20,8 +20,18 @@
                 this.background.width = window.innerWidth; //szerokość
                 this.background.height = window.innerHeight; //wysokość
                 mainContainer.addChild(this.background); //dodawanie sprite'a (backgroundu) do głównego containera -to co w głównym się znajdzie to zostaje pokazanie na ekranie
+            },
+            music : {},
+            musicInitialization : function() {
+
+            },
+            newGame : {},
+            newGameInitialization : function() {
+                
             }
-            
+
+
+
         }
       
         function setup() {
