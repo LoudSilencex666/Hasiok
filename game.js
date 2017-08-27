@@ -17,7 +17,8 @@
             let sprite1 = new PIXI.Sprite(testTexture["test1.png"]);
             let sprite2 = new PIXI.Sprite(testTexture["test2.png"]);
             let sprite3 = new PIXI.Sprite(testTexture["test3.png"]);
-            
+            // ale zaczepisty komentasz tusz pod szpritami
+
             sprite1.position.set(100, 100);
             sprite2.position.set(600, 400);
             sprite3.position.set(1000, 700);
