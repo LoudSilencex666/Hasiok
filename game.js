@@ -1,4 +1,3 @@
-
         let mainContainer = new PIXI.Container(); // Tworzenie głównego containera który na końcu będziemy wyświetlać.
         const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight); //rozmiar canvasa szerokość i wysokość
         document.body.appendChild(renderer.view); //dodawnie canvasu do documentu HTML
@@ -31,15 +30,27 @@
                 this.music.position.set(this.musicX, this.musicY);
                 mainContainer.addChild(this.music);
             },
-
+            newGameW : 200,
+            newGameH : 80,
             newGame : {},
             newGameInitialization : function() {
                 idMenuTexture = PIXI.loader.resources["menuTileset"].textures; 
                 this.newGame = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);    
-                this.newGame.width = 200; 
-                this.newGame.height = 80; 
-                this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/10 * 2 - this.newGame.height/2); 
+                this.newGame.width = this.newGameW; 
+                this.newGame.height = this.newGameH;
+                this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/10 * 2  - this.newGame.height/2); 
                 mainContainer.addChild(this.newGame);
+            },
+            profilW : 200,
+            profilH : 80,
+            profil : {},
+            profilInitialization : function() {
+                idMenuTexture = PIXI.loader.resources["menuTileset"].textures; 
+                this.profil = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);    
+                this.profil.width = this.profilW; 
+                this.profil.height = this.profilH;
+                this.profil.position.set(window.innerWidth/2 - this.profil.width/2, window.innerHeight/10 * 4  - this.profil.height/2); 
+                mainContainer.addChild(this.profil);
             }
 
         }
@@ -48,8 +59,6 @@
             menu.backgroundInitialization(); //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
             menu.musicInitialization();
             menu.newGameInitialization();    
-            
+            menu.profilInitialization();
             renderer.render(mainContainer); //ukazanie na ekranie naszego mainContainer
         }
-        
-        
