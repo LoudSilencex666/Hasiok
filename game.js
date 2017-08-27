@@ -1,32 +1,32 @@
 
-        let mainContainer = new PIXI.Container();
-        const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.view);
+        let mainContainer = new PIXI.Container(); // Tworzenie głównego containera który na końcu będziemy wyświetlać.
+        const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight); //rozmiar canvasa szerokość i wysokość
+        document.body.appendChild(renderer.view); //dodawnie canvasu do documentu HTML
 
         PIXI.loader
         .add("menuTileset", "files/images/menuTilesets/menuTileset.json")
         .load(setup);
 
-        let idMenuTexture;
+        let idMenuTexture; // randomowe zmienne które bedziemy używać
 
-        let menu = {
-            x : 0,
-            y : 0,
-            background : {},
-            initialization : function() {
-                idMenuTexture = PIXI.loader.resources["menuTileset"].textures;
-                this.background = new PIXI.Sprite(idMenuTexture["menuBackground.png"]);
-                this.background.position.set(this.x, this.y);
-                this.background.width = window.innerWidth;
-                this.background.height = window.innerHeight;
-                mainContainer.addChild(this.background);
+        let menu = { //obiekt menu
+            x : 0, //koordynat x
+            y : 0, //koordynat y
+            background : {}, //obiekt tła
+            initialization : function() { //generowanie tła na ekranie gry
+                idMenuTexture = PIXI.loader.resources["menuTileset"].textures; // odnośnik by nie musieć pisać tego PIXI (patrz forma 3 w poradniku o displejowaniu spritów z tileseta)
+                this.background = new PIXI.Sprite(idMenuTexture["menuBackground.png"]); //Tworzenie Sprita i przypisanie go do nazwy background
+                this.background.position.set(this.x, this.y); //pozycja backgroundu
+                this.background.width = window.innerWidth; //szerokość
+                this.background.height = window.innerHeight; //wysokość
+                mainContainer.addChild(this.background); //dodawanie sprite'a (backgroundu) do głównego containera -to co w głównym się znajdzie to zostaje pokazanie na ekranie
             }
         }
       
         function setup() {
-            menu.initialization();        
+            menu.initialization();    //wywołanie funkcji backgroundu, jeśli nie wywołamy w setupie to instrukcja nigdy sie nie wykona 
             
-            renderer.render(mainContainer);
+            renderer.render(mainContainer); //ukazanie na ekranie naszego mainContainer
         }
         
         
