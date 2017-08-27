@@ -1,11 +1,26 @@
-        //Create the renderer
-        const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-        
-        //Add the canvas to the HTML document
-        document.body.appendChild(renderer.view);
-        
-        //Create a container object called the `stage`
+
         let stage = new PIXI.Container();
+        const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.view);
+       
+        let texture = [];
+        texture[0] = ["files/images/test/test.jpeg"];
         
-        //Tell the `renderer` to `render` the `stage`
-        renderer.render(stage);
+
+        PIXI.loader
+        .add(texture[0])
+        .load(setup);
+
+
+      
+        function setup() {
+            let sprite = new PIXI.Sprite(
+            PIXI.loader.resources[texture[0]].texture
+            );
+
+            stage.addChild(sprite);;
+            
+            renderer.render(stage);
+        }
+        
+        
