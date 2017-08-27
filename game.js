@@ -21,14 +21,21 @@ let menu = {
         mainContainer.addChild(this.background); 
     },
 
-    musicw : 200,
-    musich : 80,
+    logoW : 0,
+    logoH : 0,
+    logo : {},
+    logoInitialization: function {
+
+    },
+
+    musicW : 200,
+    musicH : 80,
     music : {},
     musicInitialization : function() {
         idMenuTexture = PIXI.loader.resources["menuTileset"].textures;
         this.music = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);
-        this.music.width = this.musicw; 
-        this.music.height = this.musich;
+        this.music.width = this.musicW; 
+        this.music.height = this.musicH;
         this.music.position.set(window.innerWidth/2 - this.music.width/2, window.innerHeight/10 * 8 - this.music.height/2);
         mainContainer.addChild(this.music);
     },
@@ -59,10 +66,14 @@ let menu = {
 
 }
 
-function setup() {
+let initializations = function() {
     menu.backgroundInitialization(); 
     menu.musicInitialization();
     menu.newGameInitialization();    
     menu.profilInitialization();
+}
+
+function setup() {
+    initializations();
     renderer.render(mainContainer); 
 }
