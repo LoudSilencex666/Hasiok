@@ -38,7 +38,7 @@
                 this.newGame = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);    
                 this.newGame.width = 200; 
                 this.newGame.height = 80; 
-                this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/2 - this.newGame.height/2); 
+                this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/10 * 2 - this.newGame.height/2); 
                 mainContainer.addChild(this.newGame);
             }
 
