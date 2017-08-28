@@ -28,18 +28,6 @@ let menu = {
 
     },
 
-    musicW : 200,
-    musicH : 80,
-    music : {},
-    musicInitialization : function() {
-        idMenuTexture = PIXI.loader.resources["menuTileset"].textures;
-        this.music = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);
-        this.music.width = this.musicW; 
-        this.music.height = this.musicH;
-        this.music.position.set(window.innerWidth/2 - this.music.width/2, window.innerHeight/10 * 8 - this.music.height/2);
-        mainContainer.addChild(this.music);
-    },
-
     newGameW : 200,
     newGameH : 80,
     newGame : {},
@@ -72,8 +60,20 @@ let menu = {
         this.tutorial = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);
         this.tutorial.width = this.tutorialW;
         this.tutorial.height = this.tutorialH;
-        this.tutorial.position.set(window.InnerWidth/2 - this.tutorial.width/2, window.innerheight/10 * 6 - this.tutorial.height/2);
+        this.tutorial.position.set(window.innerWidth/2 - this.tutorial.width/2, window.innerHeight/10 * 6 - this.tutorial.height/2);
         mainContainer.addChild(this.tutorial);
+    },
+
+    musicW : 200,
+    musicH : 80,
+    music : {},
+    musicInitialization : function() {
+        idMenuTexture = PIXI.loader.resources["menuTileset"].textures;
+        this.music = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);
+        this.music.width = this.musicW; 
+        this.music.height = this.musicH;
+        this.music.position.set(window.innerWidth/2 - this.music.width/2, window.innerHeight/10 * 8 - this.music.height/2);
+        mainContainer.addChild(this.music);
     },
 
     creditsW : 200,
@@ -84,17 +84,17 @@ let menu = {
         this.credits = new PIXI.Sprite(idMenuTexture["welcome_twitch.png"]);
         this.credits.width = this.creditsW;
         this.credits.height = this.creditsH;
-        this.credits.position.set(window.InnerWidth/2 - this.credits.width/2, window.innerheight/10 * 9 - this.credits.height/2);
+        this.credits.position.set(window.innerWidth/2 - this.credits.width/2, window.innerHeight/10 * 9 - this.credits.height/2);
         mainContainer.addChild(this.credits);
     }
 }
 
 let initializations = function() {
-    menu.backgroundInitialization(); 
-    menu.musicInitialization();
+    menu.backgroundInitialization();
     menu.newGameInitialization();    
     menu.profilInitialization();
-    menu.tutorialInitialization();
+    menu.tutorialInitialization(); 
+    menu.musicInitialization();
     menu.creditsInitialization();
 }
 
