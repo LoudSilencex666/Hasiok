@@ -40,6 +40,8 @@ let menu = {
 
     newGameW : 200,
     newGameH : 80,
+    newGameWindowStatement : false,
+    newGameWindow: {},
     newGame : {},
     newGameInitialization : function() {
         this.newGame = new PIXI.Sprite.fromFrame("welcome_twitch.png"); 
@@ -57,7 +59,54 @@ let menu = {
 
         this.newGame.mouseout = function() {
             menu.newGame.texture = PIXI.Texture.fromFrame("welcome_twitch.png");
-        }
+        };
+
+        this.newGame.click = function() {
+                menu.newGameWindow = {
+                backgroundW : window.innerWidth,
+                backgroundH : window.innerHeight,
+                background : {},
+                backgroundInitialization : function() {
+                    this.background = new PIXI.Sprite.fromFrame("welcome_twitch.png");
+                    this.background.width = this.backgroundW;
+                    this.background.height = this.backgroundH;
+                    mainContainer.addChild(this.background);
+                },
+
+                backButtonW : 100,
+                backButtonH : 100,
+                backButton : {},
+                backButtonInitialization : function() {
+                    this.backButton = new PIXI.Sprite.fromFrame("shedule_twitch.png");
+                    this.backButton.interactive = true;
+                    this.backButton.buttonMode = true; 
+                    this.backButton.width = this.backButtonW;
+                    this.backButton.height = this.backButtonH;
+                    mainContainer.addChild(this.backButton);
+                },
+                backButtonFunctionality : function() {
+                    this.backButton.click = function() {
+                        menuInitializations();
+                        menu.newGameWindow.background.destroy();
+                        menu.newGameWindow.backButton.destroy();
+                    }
+                }
+            };
+            
+            menu.newGameWindow.backgroundInitialization();
+            menu.newGameWindow.backButtonInitialization();
+                
+            menu.newGame.destroy();
+            menu.profil.destroy();
+            menu.tutorial.destroy();
+            menu.music.destroy();
+            menu.credits.destroy();
+
+
+            menu.newGameWindowStatement = true;
+            
+            
+        };
     },
 
 /////////////////////// Profil //////////////////////////
@@ -157,7 +206,7 @@ let menu = {
     }
 };
 
-let initializations = function() {
+let menuInitializations = function() {
     menu.backgroundInitialization();
     menu.logoInitialization();
     menu.newGameInitialization();    
@@ -168,8 +217,11 @@ let initializations = function() {
    
 };
 
-let functionalities = function() {
+let menuFunctionalities = function() {
     menu.newGameFunctionality();
+    if(menu.newGameWindowStatement) {
+        menu.newGameWindow.backButtonFunctionality();
+    }
     menu.profilFunctionality();
     menu.tutorialFunctionality();
     menu.musicFunctionality();
@@ -177,7 +229,7 @@ let functionalities = function() {
 };
 
 function setup() {
-    initializations();
+    menuInitializations();
 
     gameInitiate();
 };
@@ -185,7 +237,7 @@ function setup() {
 function gameInitiate(){
       requestAnimationFrame(gameInitiate);
 
-      functionalities();
+      menuFunctionalities();
 
       renderer.render(mainContainer);
 };
