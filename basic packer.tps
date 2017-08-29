@@ -150,7 +150,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>files/images/menuTilesets/menuTileset.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -167,7 +167,7 @@
             <string></string>
         </struct>
         <key>autoAliasEnabled</key>
-        <true/>
+        <false/>
         <key>trimSpriteNames</key>
         <false/>
         <key>prependSmartFolderName</key>
@@ -198,9 +198,41 @@
             <false/>
         </struct>
         <key>individualSpriteSettings</key>
-        <map type="IndividualSpriteSettingsMap"/>
+        <map type="IndividualSpriteSettingsMap">
+            <key type="filename">files/images/menuPics/menuBackground.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>480,270,960,540</rect>
+                <key>scale9Paddings</key>
+                <rect>480,270,960,540</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">files/images/menuPics/shedule_twitch.png</key>
+            <key type="filename">files/images/menuPics/welcome_twitch.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>240,80,480,160</rect>
+                <key>scale9Paddings</key>
+                <rect>240,80,480,160</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+        </map>
         <key>fileList</key>
-        <array/>
+        <array>
+            <filename>files/images/menuPics/welcome_twitch.png</filename>
+            <filename>files/images/menuPics/menuBackground.png</filename>
+            <filename>files/images/menuPics/shedule_twitch.png</filename>
+        </array>
         <key>ignoreFileList</key>
         <array/>
         <key>replaceList</key>

@@ -1,30 +1,30 @@
 {"frames": {
 
+"buttonNewGame.png":
+{
+	"frame": {"x":0,"y":0,"w":350,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":100},
+	"sourceSize": {"w":350,"h":100},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonNewGameHover.png":
+{
+	"frame": {"x":350,"y":0,"w":350,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":100},
+	"sourceSize": {"w":350,"h":100},
+	"pivot": {"x":0.5,"y":0.5}
+},
 "menuBackground.png":
 {
-	"frame": {"x":0,"y":0,"w":1920,"h":1080},
+	"frame": {"x":0,"y":100,"w":1920,"h":1080},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
 	"sourceSize": {"w":1920,"h":1080},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"shedule_twitch.png":
-{
-	"frame": {"x":0,"y":1080,"w":960,"h":320},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":320},
-	"sourceSize": {"w":960,"h":320},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"welcome_twitch.png":
-{
-	"frame": {"x":960,"y":1080,"w":960,"h":320},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":320},
-	"sourceSize": {"w":960,"h":320},
 	"pivot": {"x":0.5,"y":0.5}
 }},
 "meta": {
@@ -32,8 +32,8 @@
 	"version": "1.0",
 	"image": "menuTileset.png",
 	"format": "RGBA8888",
-	"size": {"w":1920,"h":1400},
+	"size": {"w":1920,"h":1180},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a6a170a02c231f3f56d0a81eabf943b6:5cf889bd812123a68f744390a68cb498:9a274df377f3133edf7d0836970cc9fa$"
+	"smartupdate": "$TexturePacker:SmartUpdate:fd35f75203c8168d948e207ef1d495c3:f996ddfb693cf43fb725fd33b2339a63:9a274df377f3133edf7d0836970cc9fa$"
 }
 }
