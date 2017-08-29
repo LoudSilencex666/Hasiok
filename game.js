@@ -28,23 +28,52 @@ let menu = {
     logoW : 1000,
     logoH : 300,
     logo : {},
-    logoInitialization: function() {
-        this.logo = new PIXI.Sprite.fromFrame("welcome_twitch.png");    
+    logoInitialization : function() {
+        this.logo = new PIXI.Sprite.fromFrame("buttonNewGame.png");    
         this.logo.width = this.logoW; 
         this.logo.height = this.logoH;
         this.logo.position.set(window.innerWidth/2 - this.logo.width/2, 0); 
         mainContainer.addChild(this.logo);
     },
+/////////////////////// drugie okna w menu //////////////////////////
+    secondWindow : {
+        backgroundW : window.innerWidth,
+        backgroundH : window.innerHeight,
+        background : {},
+        backgroundInitialization : function() {
+            this.background = new PIXI.Sprite.fromFrame("menuBackground.png");
+            this.background.width = this.backgroundW;
+            this.background.height = this.backgroundH;
+            mainContainer.addChild(this.background);
+        },
+
+        backButtonW : 350,
+        backButtonH : 100,
+        backButton : {},
+        backButtonInitialization : function() {
+            this.backButton = new PIXI.Sprite.fromFrame("buttonNewGameHover.png");
+            this.backButton.interactive = true;
+            this.backButton.buttonMode = true; 
+            this.backButton.width = this.backButtonW;
+            this.backButton.height = this.backButtonH;
+            mainContainer.addChild(this.backButton);
+        },
+        backButtonFunctionality : function() {
+            this.backButton.click = function() {
+                menuInitializations();
+                menu.newGameWindow.background.destroy();
+                menu.newGameWindow.backButton.destroy();
+            }
+        }
+    },
 
 /////////////////////// Nowa gra //////////////////////////
 
-    newGameW : 200,
-    newGameH : 80,
-    newGameWindowStatement : false,
-    newGameWindow: {},
+    newGameW : 350,
+    newGameH : 100,
     newGame : {},
     newGameInitialization : function() {
-        this.newGame = new PIXI.Sprite.fromFrame("welcome_twitch.png"); 
+        this.newGame = new PIXI.Sprite.fromFrame("buttonNewGame.png"); 
         this.newGame.interactive = true;
         this.newGame.buttonMode = true;     
         this.newGame.width = this.newGameW; 
@@ -54,47 +83,17 @@ let menu = {
     },
     newGameFunctionality : function() {
         this.newGame.mouseover = function() {
-            menu.newGame.texture = PIXI.Texture.fromFrame("shedule_twitch.png");
+            menu.newGame.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
         };
 
         this.newGame.mouseout = function() {
-            menu.newGame.texture = PIXI.Texture.fromFrame("welcome_twitch.png");
+            menu.newGame.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         };
 
         this.newGame.click = function() {
-                menu.newGameWindow = {
-                backgroundW : window.innerWidth,
-                backgroundH : window.innerHeight,
-                background : {},
-                backgroundInitialization : function() {
-                    this.background = new PIXI.Sprite.fromFrame("welcome_twitch.png");
-                    this.background.width = this.backgroundW;
-                    this.background.height = this.backgroundH;
-                    mainContainer.addChild(this.background);
-                },
-
-                backButtonW : 100,
-                backButtonH : 100,
-                backButton : {},
-                backButtonInitialization : function() {
-                    this.backButton = new PIXI.Sprite.fromFrame("shedule_twitch.png");
-                    this.backButton.interactive = true;
-                    this.backButton.buttonMode = true; 
-                    this.backButton.width = this.backButtonW;
-                    this.backButton.height = this.backButtonH;
-                    mainContainer.addChild(this.backButton);
-                },
-                backButtonFunctionality : function() {
-                    this.backButton.click = function() {
-                        menuInitializations();
-                        menu.newGameWindow.background.destroy();
-                        menu.newGameWindow.backButton.destroy();
-                    }
-                }
-            };
             
-            menu.newGameWindow.backgroundInitialization();
-            menu.newGameWindow.backButtonInitialization();
+            menu.secondWindow.backgroundInitialization();
+            menu.secondWindow.backButtonInitialization();
                 
             menu.newGame.destroy();
             menu.profil.destroy();
@@ -102,20 +101,24 @@ let menu = {
             menu.music.destroy();
             menu.credits.destroy();
 
-
-            menu.newGameWindowStatement = true;
-            
-            
+            menu.newGameWindowStatement = true;    
         };
     },
 
+    newGameWindowStatement : false,
+    newGameWindow : {
+
+    },
+
+    
+
 /////////////////////// Profil //////////////////////////
 
-    profilW : 200,
-    profilH : 80,
+    profilW : 350,
+    profilH : 100,
     profil : {},
     profilInitialization : function() {
-        this.profil = new PIXI.Sprite.fromFrame("welcome_twitch.png");
+        this.profil = new PIXI.Sprite.fromFrame("buttonNewGame.png");
         this.profil.interactive = true;
         this.profil.buttonMode = true;     
         this.profil.width = this.profilW; 
@@ -125,21 +128,39 @@ let menu = {
     },
     profilFunctionality : function() {
         this.profil.mouseover = function() {
-            menu.profil.texture = PIXI.Texture.fromFrame("shedule_twitch.png");
+            menu.profil.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
         };
 
         this.profil.mouseout = function() {
-            menu.profil.texture = PIXI.Texture.fromFrame("welcome_twitch.png");
+            menu.profil.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
+
+        this.profil.click = function() {
+            
+            menu.secondWindow.backgroundInitialization();
+            menu.secondWindow.backButtonInitialization();
+                
+            menu.newGame.destroy();
+            menu.profil.destroy();
+            menu.tutorial.destroy();
+            menu.music.destroy();
+            menu.credits.destroy();
+
+            menu.profilWindowStatement = true;    
+        };
+    },
+    profilWindowStatement : false,
+    profilWindow : {
+
     },
 
 /////////////////////// Tutorial //////////////////////////    
 
-    tutorialW : 200,
-    tutorialH : 80,
+    tutorialW : 350,
+    tutorialH : 100,
     tutorial : {},
     tutorialInitialization : function() {
-        this.tutorial = new PIXI.Sprite.fromFrame("welcome_twitch.png");
+        this.tutorial = new PIXI.Sprite.fromFrame("buttonNewGame.png");
         this.tutorial.interactive = true;
         this.tutorial.buttonMode = true;  
         this.tutorial.width = this.tutorialW;
@@ -149,21 +170,21 @@ let menu = {
     },
     tutorialFunctionality : function() {
         this.tutorial.mouseover = function() {
-            menu.tutorial.texture = PIXI.Texture.fromFrame("shedule_twitch.png");
+            menu.tutorial.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
         };
 
         this.tutorial.mouseout = function() {
-            menu.tutorial.texture = PIXI.Texture.fromFrame("welcome_twitch.png");
+            menu.tutorial.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
     },
 
 /////////////////////// Music //////////////////////////
 
-    musicW : 200,
-    musicH : 80,
+    musicW : 350,
+    musicH : 100,
     music : {},
     musicInitialization : function() {
-        this.music = new PIXI.Sprite.fromFrame("welcome_twitch.png");
+        this.music = new PIXI.Sprite.fromFrame("buttonNewGame.png");
         this.music.interactive = true;
         this.music.buttonMode = true;  
         this.music.width = this.musicW; 
@@ -173,21 +194,21 @@ let menu = {
     },
     musicFunctionality : function() {
         this.music.mouseover = function() {
-            menu.music.texture = PIXI.Texture.fromFrame("shedule_twitch.png");
+            menu.music.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
         };
 
         this.music.mouseout = function() {
-            menu.music.texture = PIXI.Texture.fromFrame("welcome_twitch.png");
+            menu.music.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
     },
 
 /////////////////////// Credits //////////////////////////    
 
-    creditsW : 200,
-    creditsH : 80,
+    creditsW : 350,
+    creditsH : 100,
     credits : {},
     creditsInitialization : function() {
-        this.credits = new PIXI.Sprite.fromFrame("welcome_twitch.png");
+        this.credits = new PIXI.Sprite.fromFrame("buttonNewGame.png");
         this.credits.interactive = true;
         this.credits.buttonMode = true;  
         this.credits.width = this.creditsW;
@@ -197,11 +218,11 @@ let menu = {
     },
     creditsFunctionality : function() {
         this.credits.mouseover = function() {
-            menu.credits.texture = PIXI.Texture.fromFrame("shedule_twitch.png");
+            menu.credits.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
         };
 
         this.credits.mouseout = function() {
-            menu.credits.texture = PIXI.Texture.fromFrame("welcome_twitch.png");
+            menu.credits.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
     }
 };
@@ -214,15 +235,21 @@ let menuInitializations = function() {
     menu.tutorialInitialization(); 
     menu.musicInitialization();
     menu.creditsInitialization();
-   
 };
 
 let menuFunctionalities = function() {
     menu.newGameFunctionality();
+
     if(menu.newGameWindowStatement) {
-        menu.newGameWindow.backButtonFunctionality();
+        menu.secondWindow.backButtonFunctionality();
     }
+
     menu.profilFunctionality();
+
+    if(menu.profilWindowStatement) {
+        menu.secondWindow.backButtonFunctionality();
+    }
+
     menu.tutorialFunctionality();
     menu.musicFunctionality();
     menu.creditsFunctionality();

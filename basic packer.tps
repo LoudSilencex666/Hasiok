@@ -199,6 +199,20 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">files/images/menuPics/buttonNewGame.png</key>
+            <key type="filename">files/images/menuPics/buttonNewGameHover.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>88,25,175,50</rect>
+                <key>scale9Paddings</key>
+                <rect>88,25,175,50</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">files/images/menuPics/menuBackground.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -212,26 +226,12 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">files/images/menuPics/shedule_twitch.png</key>
-            <key type="filename">files/images/menuPics/welcome_twitch.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>240,80,480,160</rect>
-                <key>scale9Paddings</key>
-                <rect>240,80,480,160</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>files/images/menuPics/welcome_twitch.png</filename>
             <filename>files/images/menuPics/menuBackground.png</filename>
-            <filename>files/images/menuPics/shedule_twitch.png</filename>
+            <filename>files/images/menuPics/buttonNewGame.png</filename>
+            <filename>files/images/menuPics/buttonNewGameHover.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
