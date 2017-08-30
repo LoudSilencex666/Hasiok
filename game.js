@@ -102,6 +102,10 @@ let menu = {
         this.newGame.click = function() {
             
             menu.secondWindow.backgroundInitialization();
+            menu.newGameWindow.playersSectionInitialization();
+            menu.newGameWindow.mapsSectionInitialization();
+            menu.newGameWindow.mapsReviewSectionInitialization();
+            menu.newGameWindow.startSectionInitialization();
             menu.secondWindow.backButtonInitialization();
                 
             menu.newGame.destroy();
@@ -116,7 +120,53 @@ let menu = {
 
     newGameWindowStatement : false,
     newGameWindow : {
+        playersSection : {},
+        playersSectionInitialization : function() {
+            this.playersSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.playersSection.width = 500;
+            this.playersSection.height = 600;
+            this.playersSection.position.set(0 + window.innerWidth/10, 150);
+            mainContainer.addChild(this.playersSection);
+        },
+        playersSectionFunctionality : function() {
 
+        },
+
+        mapsSection : {},
+        mapsSectionInitialization : function() {
+            this.mapsSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.mapsSection.width = 300;
+            this.mapsSection.height = 600;
+            this.mapsSection.position.set(this.playersSection.width + this.playersSection.x + 100, 150);
+            mainContainer.addChild(this.mapsSection);
+        },
+        mapsSectionFunctionality : function() {
+
+        },
+
+        mapsReviewSection : {},
+        mapsReviewSectionInitialization : function() {
+            this.mapsReviewSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.mapsReviewSection.width = 500;
+            this.mapsReviewSection.height = 600;
+            this.mapsReviewSection.position.set(window.innerWidth - this.mapsReviewSection.width -window.innerWidth/10, 150);
+            mainContainer.addChild(this.mapsReviewSection);
+        },
+        mapsReviewSectionFunctionality : function() {
+
+        },
+
+        startSection : {},
+        startSectionInitialization : function() {
+            this.startSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.startSection.width = 350;
+            this.startSection.height = 100;
+            this.startSection.position.set(window.innerWidth/2 - this.startSection.width/2, window.innerHeight/1.2);
+            mainContainer.addChild(this.startSection);
+        },
+        startSectionFunctionality : function() {
+
+        },
     },
 
     
