@@ -90,9 +90,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>4096</int>
             <key>height</key>
-            <int>2048</int>
+            <int>4096</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -199,17 +199,27 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">files/images/menuPics/buttonBack.png</key>
+            <key type="filename">files/images/menuPics/buttonBackHover.png</key>
+            <key type="filename">files/images/menuPics/buttonCredits.png</key>
+            <key type="filename">files/images/menuPics/buttonCreditsHover.png</key>
+            <key type="filename">files/images/menuPics/buttonMusic.png</key>
+            <key type="filename">files/images/menuPics/buttonMusicHover.png</key>
             <key type="filename">files/images/menuPics/buttonNewGame.png</key>
             <key type="filename">files/images/menuPics/buttonNewGameHover.png</key>
+            <key type="filename">files/images/menuPics/buttonProfil.png</key>
+            <key type="filename">files/images/menuPics/buttonProfilHover.png</key>
+            <key type="filename">files/images/menuPics/buttonTutorial.png</key>
+            <key type="filename">files/images/menuPics/buttonTutorialHover.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>88,25,175,50</rect>
+                <rect>175,50,350,100</rect>
                 <key>scale9Paddings</key>
-                <rect>88,25,175,50</rect>
+                <rect>175,50,350,100</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -229,9 +239,19 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>files/images/menuPics/menuBackground.png</filename>
+            <filename>files/images/menuPics/buttonMusic.png</filename>
+            <filename>files/images/menuPics/buttonCredits.png</filename>
             <filename>files/images/menuPics/buttonNewGame.png</filename>
+            <filename>files/images/menuPics/menuBackground.png</filename>
             <filename>files/images/menuPics/buttonNewGameHover.png</filename>
+            <filename>files/images/menuPics/buttonProfilHover.png</filename>
+            <filename>files/images/menuPics/buttonTutorialHover.png</filename>
+            <filename>files/images/menuPics/buttonMusicHover.png</filename>
+            <filename>files/images/menuPics/buttonCreditsHover.png</filename>
+            <filename>files/images/menuPics/buttonProfil.png</filename>
+            <filename>files/images/menuPics/buttonTutorial.png</filename>
+            <filename>files/images/menuPics/buttonBack.png</filename>
+            <filename>files/images/menuPics/buttonBackHover.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

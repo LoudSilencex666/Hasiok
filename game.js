@@ -51,7 +51,7 @@ let menu = {
         backButtonH : 100,
         backButton : {},
         backButtonInitialization : function() {
-            this.backButton = new PIXI.Sprite.fromFrame("buttonNewGameHover.png");
+            this.backButton = new PIXI.Sprite.fromFrame("buttonBack.png");
             this.backButton.interactive = true;
             this.backButton.buttonMode = true; 
             this.backButton.width = this.backButtonW;
@@ -59,10 +59,19 @@ let menu = {
             mainContainer.addChild(this.backButton);
         },
         backButtonFunctionality : function() {
+            this.backButton.mouseover = function() {
+                menu.secondWindow.backButton.texture = PIXI.Texture.fromFrame("buttonBackHover.png");
+            };
+        
+            this.backButton.mouseout = function() {
+                menu.secondWindow.backButton.texture = PIXI.Texture.fromFrame("buttonBack.png");
+            };
+
+
             this.backButton.click = function() {
                 menuInitializations();
-                menu.newGameWindow.background.destroy();
-                menu.newGameWindow.backButton.destroy();
+                menu.secondWindow.background.destroy();
+                menu.secondWindow.backButton.destroy();
             }
         }
     },
