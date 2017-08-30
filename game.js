@@ -176,6 +176,24 @@ let menu = {
         this.tutorial.mouseout = function() {
             menu.tutorial.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
+        
+        this.tutorial.click = function() {
+            
+            menu.secondWindow.backgroundInitialization();
+            menu.secondWindow.backButtonInitialization();
+                
+            menu.newGame.destroy();
+            menu.profil.destroy();
+            menu.tutorial.destroy();
+            menu.music.destroy();
+            menu.credits.destroy();
+
+            menu.tuturialWindowStatement = true;    
+        };
+    },
+    tutorialWindowStatement : false,
+    tutorialWindow : {
+
     },
 
 /////////////////////// Music //////////////////////////
@@ -200,8 +218,25 @@ let menu = {
         this.music.mouseout = function() {
             menu.music.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
-    },
+        
+        this.music.click = function() {
+            
+            menu.secondWindow.backgroundInitialization();
+            menu.secondWindow.backButtonInitialization();
+                
+            menu.newGame.destroy();
+            menu.profil.destroy();
+            menu.tutorial.destroy();
+            menu.music.destroy();
+            menu.credits.destroy();
 
+            menu.musicWindowStatement = true;    
+        };
+    },
+    tutorialWindowStatement : false,
+    tutorialWindow : {
+
+    },
 /////////////////////// Credits //////////////////////////    
 
     creditsW : 350,
@@ -224,7 +259,26 @@ let menu = {
         this.credits.mouseout = function() {
             menu.credits.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
         }
-    }
+
+        this.credits.click = function() {
+            
+            menu.secondWindow.backgroundInitialization();
+            menu.secondWindow.backButtonInitialization();
+                
+            menu.newGame.destroy();
+            menu.profil.destroy();
+            menu.tutorial.destroy();
+            menu.music.destroy();
+            menu.credits.destroy();
+
+            menu.creditsWindowStatement = true;    
+        };
+    },
+    creditsWindowStatement : false,
+    creditsWindow : {
+    
+    },
+
 };
 
 let menuInitializations = function() {
@@ -251,8 +305,20 @@ let menuFunctionalities = function() {
     }
 
     menu.tutorialFunctionality();
+    if(menu.tutorialWindowStatement) {
+        menu.secondWindow.backButtonFunctionality();
+    }
+
     menu.musicFunctionality();
+    if(menu.musicWindowStatement) {
+        menu.secondWindow.backButtonFunctionality();
+    }
     menu.creditsFunctionality();
+
+    if(menu.creditsWindowStatement) {
+        menu.secondWindow.backButtonFunctionality();
+    }
+    
 };
 
 function setup() {
