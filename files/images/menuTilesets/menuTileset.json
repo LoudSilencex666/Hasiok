@@ -1,26 +1,98 @@
 {"frames": {
 
-"buttonNewGame.png":
+"buttonCredits.png":
 {
-	"frame": {"x":0,"y":0,"w":350,"h":100},
+	"frame": {"x":0,"y":0,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":100},
-	"sourceSize": {"w":350,"h":100},
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonCreditsHover.png":
+{
+	"frame": {"x":700,"y":0,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonMusic.png":
+{
+	"frame": {"x":0,"y":200,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonMusicHover.png":
+{
+	"frame": {"x":700,"y":200,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonNewGame.png":
+{
+	"frame": {"x":0,"y":400,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
 	"pivot": {"x":0.5,"y":0.5}
 },
 "buttonNewGameHover.png":
 {
-	"frame": {"x":350,"y":0,"w":350,"h":100},
+	"frame": {"x":700,"y":400,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":100},
-	"sourceSize": {"w":350,"h":100},
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonProfil.png":
+{
+	"frame": {"x":0,"y":600,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonProfilHover.png":
+{
+	"frame": {"x":700,"y":600,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonTutorial.png":
+{
+	"frame": {"x":0,"y":800,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"buttonTutorialHover.png":
+{
+	"frame": {"x":700,"y":800,"w":700,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
+	"sourceSize": {"w":700,"h":200},
 	"pivot": {"x":0.5,"y":0.5}
 },
 "menuBackground.png":
 {
-	"frame": {"x":0,"y":100,"w":1920,"h":1080},
+	"frame": {"x":0,"y":1000,"w":1920,"h":1080},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
@@ -32,8 +104,8 @@
 	"version": "1.0",
 	"image": "menuTileset.png",
 	"format": "RGBA8888",
-	"size": {"w":1920,"h":1180},
+	"size": {"w":1920,"h":2080},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:fd35f75203c8168d948e207ef1d495c3:f996ddfb693cf43fb725fd33b2339a63:9a274df377f3133edf7d0836970cc9fa$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d6c27c6c698e4f91fb537843e60523fe:45603a0e10f4cd4983a8188ebce11b78:9a274df377f3133edf7d0836970cc9fa$"
 }
 }

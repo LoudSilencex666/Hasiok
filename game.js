@@ -78,7 +78,7 @@ let menu = {
         this.newGame.buttonMode = true;     
         this.newGame.width = this.newGameW; 
         this.newGame.height = this.newGameH;
-        this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/10 * 3  - this.newGame.height/2); 
+        this.newGame.position.set(window.innerWidth/2 - this.newGame.width/2, window.innerHeight/10 * 4  - this.newGame.height/2); 
         mainContainer.addChild(this.newGame);
     },
     newGameFunctionality : function() {
@@ -118,21 +118,21 @@ let menu = {
     profilH : 100,
     profil : {},
     profilInitialization : function() {
-        this.profil = new PIXI.Sprite.fromFrame("buttonNewGame.png");
+        this.profil = new PIXI.Sprite.fromFrame("buttonProfil.png");
         this.profil.interactive = true;
         this.profil.buttonMode = true;     
         this.profil.width = this.profilW; 
         this.profil.height = this.profilH;
-        this.profil.position.set(window.innerWidth/2 - this.profil.width/2, window.innerHeight/10 * 4.5  - this.profil.height/2); 
+        this.profil.position.set(window.innerWidth/2 - this.profil.width/2, window.innerHeight/10 * 4 + 120  - this.profil.height/2); 
         mainContainer.addChild(this.profil);
     },
     profilFunctionality : function() {
         this.profil.mouseover = function() {
-            menu.profil.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
+            menu.profil.texture = PIXI.Texture.fromFrame("buttonProfilHover.png");
         };
 
         this.profil.mouseout = function() {
-            menu.profil.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
+            menu.profil.texture = PIXI.Texture.fromFrame("buttonProfil.png");
         }
 
         this.profil.click = function() {
@@ -160,21 +160,21 @@ let menu = {
     tutorialH : 100,
     tutorial : {},
     tutorialInitialization : function() {
-        this.tutorial = new PIXI.Sprite.fromFrame("buttonNewGame.png");
+        this.tutorial = new PIXI.Sprite.fromFrame("buttonTutorial.png");
         this.tutorial.interactive = true;
         this.tutorial.buttonMode = true;  
         this.tutorial.width = this.tutorialW;
         this.tutorial.height = this.tutorialH;
-        this.tutorial.position.set(window.innerWidth/2 - this.tutorial.width/2, window.innerHeight/10 * 6 - this.tutorial.height/2);
+        this.tutorial.position.set(window.innerWidth/2 - this.tutorial.width/2, window.innerHeight/10 * 4 + 240 - this.tutorial.height/2);
         mainContainer.addChild(this.tutorial);
     },
     tutorialFunctionality : function() {
         this.tutorial.mouseover = function() {
-            menu.tutorial.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
+            menu.tutorial.texture = PIXI.Texture.fromFrame("buttonTutorialHover.png");
         };
 
         this.tutorial.mouseout = function() {
-            menu.tutorial.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
+            menu.tutorial.texture = PIXI.Texture.fromFrame("buttonTutorial.png");
         }
         
         this.tutorial.click = function() {
@@ -202,21 +202,21 @@ let menu = {
     musicH : 100,
     music : {},
     musicInitialization : function() {
-        this.music = new PIXI.Sprite.fromFrame("buttonNewGame.png");
+        this.music = new PIXI.Sprite.fromFrame("buttonMusic.png");
         this.music.interactive = true;
         this.music.buttonMode = true;  
         this.music.width = this.musicW; 
         this.music.height = this.musicH;
-        this.music.position.set(window.innerWidth/2 - this.music.width/2, window.innerHeight/10 * 7.5 - this.music.height/2);
+        this.music.position.set(window.innerWidth/2 - this.music.width/2, window.innerHeight/10 * 4 + 360 - this.music.height/2);
         mainContainer.addChild(this.music);
     },
     musicFunctionality : function() {
         this.music.mouseover = function() {
-            menu.music.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
+            menu.music.texture = PIXI.Texture.fromFrame("buttonMusicHover.png");
         };
 
         this.music.mouseout = function() {
-            menu.music.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
+            menu.music.texture = PIXI.Texture.fromFrame("buttonMusic.png");
         }
         
         this.music.click = function() {
@@ -243,21 +243,21 @@ let menu = {
     creditsH : 100,
     credits : {},
     creditsInitialization : function() {
-        this.credits = new PIXI.Sprite.fromFrame("buttonNewGame.png");
+        this.credits = new PIXI.Sprite.fromFrame("buttonCredits.png");
         this.credits.interactive = true;
         this.credits.buttonMode = true;  
         this.credits.width = this.creditsW;
         this.credits.height = this.creditsH;
-        this.credits.position.set(window.innerWidth/2 - this.credits.width/2, window.innerHeight/10 * 9 - this.credits.height/2);
+        this.credits.position.set(window.innerWidth/2 - this.credits.width/2, window.innerHeight/10 * 4 + 480 - this.credits.height/2);
         mainContainer.addChild(this.credits);
     },
     creditsFunctionality : function() {
         this.credits.mouseover = function() {
-            menu.credits.texture = PIXI.Texture.fromFrame("buttonNewGameHover.png");
+            menu.credits.texture = PIXI.Texture.fromFrame("buttonCreditsHover.png");
         };
 
         this.credits.mouseout = function() {
-            menu.credits.texture = PIXI.Texture.fromFrame("buttonNewGame.png");
+            menu.credits.texture = PIXI.Texture.fromFrame("buttonCredits.png");
         }
 
         this.credits.click = function() {
