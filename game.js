@@ -6,7 +6,8 @@ PIXI.loader
 .add("menuTileset", "files/images/menuTilesets/menuTileset.json")
 .load(setup);
 
-let idMenuTexture; 
+let idMenuTexture;
+let playerArray = []; 
 
 let menu = {
 
@@ -107,8 +108,13 @@ let menu = {
 
         this.newGame.click = function() {
             
+
             menu.secondWindow.backgroundInitialization();
-            menu.newGameWindow.playersSectionInitialization();
+            menu.newGameWindow.playersListSectionInitialization();
+            for (let i = 0; i>8; i++) {
+                playerArray[i] = new menu.newGameWindow; 
+            }
+            menu.newGameWindow.playerSectionInitialization();
             menu.newGameWindow.mapsSectionInitialization();
             menu.newGameWindow.mapsReviewSectionInitialization();
             menu.newGameWindow.startSectionInitialization();
@@ -120,22 +126,43 @@ let menu = {
             menu.music.destroy();
             menu.credits.destroy();
 
+            console.log(playerArray[1]);
             menu.newGameWindowStatement = true;    
         };
     },
 
     newGameWindowStatement : false,
     newGameWindow : {
-        playersSection : {},
-        playersSectionInitialization : function() {
-            this.playersSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
-            this.playersSection.width = 500;
-            this.playersSection.height = 600;
-            this.playersSection.position.set(0 + window.innerWidth/10, 150);
-            mainContainer.addChild(this.playersSection);
+        playersListSection : {},
+        playersListSectionInitialization : function() {
+            this.playersListSection = new PIXI.Sprite.fromFrame("playerList.png");
+            this.playersListSection.width = 500;
+            this.playersListSection.height = 600;
+            this.playersListSection.position.set(0 + window.innerWidth/10, 150);
+            mainContainer.addChild(this.playersListSection);
         },
-        playersSectionFunctionality : function() {
+        playersListSectionFunctionality : function() {
+            
+        },
 
+        playerSection : {},
+        playerSectionInitialization : function() {
+            this.playerSection = new PIXI.Sprite.fromFrame("playerWindow.png");
+            this.playerSection.interactive = true;
+            this.playerSection.buttonMode = true;
+            this.playerSection.width = 480;
+            this.playerSection.height = 75;
+            this.playerSection.position.set(this.playersListSection.x + 10, this.playersListSection.y + 5);
+            mainContainer.addChild(this.playerSection);
+        },
+        playerSectionFunctionality : function() {
+            this.playerSection.mouseover = function() {
+                menu.newGameWindow.playerSection.texture = PIXI.Texture.fromFrame("playerWindowHover.png");
+            };
+
+            this.playerSection.mouseout = function() {
+                menu.newGameWindow.playerSection.texture = PIXI.Texture.fromFrame("playerWindow.png");
+            };
         },
 
         mapsSection : {},
@@ -143,7 +170,7 @@ let menu = {
             this.mapsSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
             this.mapsSection.width = 300;
             this.mapsSection.height = 600;
-            this.mapsSection.position.set(this.playersSection.width + this.playersSection.x + 100, 150);
+            this.mapsSection.position.set(this.playersListSection.width + this.playersListSection.x + 100, 150);
             mainContainer.addChild(this.mapsSection);
         },
         mapsSectionFunctionality : function() {
@@ -437,6 +464,7 @@ let menuFunctionalities = function() {
 
     if(menu.newGameWindowStatement) {
         menu.secondWindow.backButtonFunctionality();
+        menu.newGameWindow.playerSectionFunctionality();
     }
 
     menu.profilFunctionality();
