@@ -72,6 +72,12 @@ let menu = {
                 menuInitializations();
                 menu.secondWindow.background.destroy();
                 menu.secondWindow.backButton.destroy();
+
+                menu.newGameWindowStatement = false;
+                menu.profilWindowStatement = false;
+                menu.tutorialWindowStatement = false;
+                menu.musicWindowStatement = false;
+                menu.creditsWindowStatement = false; 
             }
         }
     },
@@ -277,6 +283,9 @@ let menu = {
         this.tutorial.click = function() {
             
             menu.secondWindow.backgroundInitialization();
+            menu.tutorialWindow.instructionSectionInitialization();
+            menu.tutorialWindow.instructionLeftSectionInitialization();
+            menu.tutorialWindow.instructionRightSectionInitialization();
             menu.secondWindow.backButtonInitialization();
                 
             menu.newGame.destroy();
@@ -288,9 +297,44 @@ let menu = {
             menu.tutorialWindowStatement = true;    
         };
     },
+
     tutorialWindowStatement : false,
     tutorialWindow : {
+        instructionSection : {},
+        instructionSectionInitialization : function() {
+            this.instructionSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.instructionSection.width = 1400;
+            this.instructionSection.height = 800;
+            this.instructionSection.position.set(window.innerWidth/2 - this.instructionSection.width/2, window.innerHeight/2 - this.instructionSection.height/2);
+            mainContainer.addChild(this.instructionSection);
+        },
+        instructionSectionFunctionality : function() {
 
+        },
+
+        instructionLeftSection : {},
+        instructionLeftSectionInitialization : function() {
+            this.instructionLeftSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.instructionLeftSection.width = 80;
+            this.instructionLeftSection.height = 100;
+            this.instructionLeftSection.position.set(50, window.innerHeight/2 - this.instructionLeftSection.height/2);
+            mainContainer.addChild(this.instructionLeftSection);
+        },
+        instructionLeftSectionFunctionality : function() {
+
+        },
+
+        instructionRightSection : {},
+        instructionRightSectionInitialization : function() {
+            this.instructionRightSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.instructionRightSection.width = 80;
+            this.instructionRightSection.height = 100;
+            this.instructionRightSection.position.set(window.innerWidth - 50 - this.instructionRightSection.width, window.innerHeight/2 - this.instructionRightSection.height/2);
+            mainContainer.addChild(this.instructionRightSection);
+        },
+        instructionRightSectionFunctionality : function() {
+
+        },   
     },
 
 /////////////////////// Music //////////////////////////
