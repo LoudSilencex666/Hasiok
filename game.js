@@ -197,6 +197,9 @@ let menu = {
         this.profil.click = function() {
             
             menu.secondWindow.backgroundInitialization();
+            menu.profilWindow.titleSectionInitialization();
+            menu.profilWindow.listSectionInitialization();
+            menu.profilWindow.infoDisplaySectionInitialization()
             menu.secondWindow.backButtonInitialization();
                 
             menu.newGame.destroy();
@@ -210,7 +213,42 @@ let menu = {
     },
     profilWindowStatement : false,
     profilWindow : {
+        titleSection : {},
+        titleSectionInitialization : function() {
+            this.titleSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.titleSection.width = window.innerWidth/10 * 6.5;
+            this.titleSection.height = window.innerHeight/10;
+            this.titleSection.position.set(window.innerWidth/10, window.innerHeight/10 + 25);
+            mainContainer.addChild(this.titleSection);
+        },
+        titleSectionFunctionality : function() {
 
+        },
+
+        listSection : {},
+        listSectionInitialization : function() {
+            this.listSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.listSection.width = window.innerWidth/10 * 1.5;
+            this.listSection.height = window.innerHeight/10 * 8;
+            this.listSection.position.set(window.innerWidth/10 * 8, window.innerHeight/10 + 25);
+            mainContainer.addChild(this.listSection);
+        },
+        listSectionFunctionality : function() {
+
+        },
+        
+        infoDisplaySection : {},
+        infoDisplaySectionInitialization : function() {
+            this.infoDisplaySection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.infoDisplaySection.width = window.innerWidth/10 * 6.5;
+            this.infoDisplaySection.height = window.innerHeight/10 * 6.5;
+            this.infoDisplaySection.position.set(window.innerWidth/10, window.innerHeight/10 * 2.5 + 25);
+            mainContainer.addChild(this.infoDisplaySection);
+        },
+        infoDisplaySectionFunctionality : function() {
+
+        },
+        
     },
 
 /////////////////////// Tutorial //////////////////////////    
@@ -247,7 +285,7 @@ let menu = {
             menu.music.destroy();
             menu.credits.destroy();
 
-            menu.tuturialWindowStatement = true;    
+            menu.tutorialWindowStatement = true;    
         };
     },
     tutorialWindowStatement : false,
@@ -292,8 +330,8 @@ let menu = {
             menu.musicWindowStatement = true;    
         };
     },
-    tutorialWindowStatement : false,
-    tutorialWindow : {
+    musicWindowStatement : false,
+    musicWindow : {
 
     },
 /////////////////////// Credits //////////////////////////    
