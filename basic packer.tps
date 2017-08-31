@@ -72,7 +72,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>0</uint>
+        <uint>20</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -90,9 +90,9 @@
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>4096</int>
+            <int>8192</int>
             <key>height</key>
-            <int>4096</int>
+            <int>8192</int>
         </QSize>
         <key>fixedTextureSize</key>
         <QSize>
@@ -236,6 +236,33 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">files/images/menuPics/playerList.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>250,300,500,600</rect>
+                <key>scale9Paddings</key>
+                <rect>250,300,500,600</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">files/images/menuPics/playerWindow.png</key>
+            <key type="filename">files/images/menuPics/playerWindowHover.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>250,51,500,101</rect>
+                <key>scale9Paddings</key>
+                <rect>250,51,500,101</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
@@ -252,6 +279,9 @@
             <filename>files/images/menuPics/buttonTutorial.png</filename>
             <filename>files/images/menuPics/buttonBack.png</filename>
             <filename>files/images/menuPics/buttonBackHover.png</filename>
+            <filename>files/images/menuPics/playerWindowHover.png</filename>
+            <filename>files/images/menuPics/playerList.png</filename>
+            <filename>files/images/menuPics/playerWindow.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
