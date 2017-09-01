@@ -1,13 +1,19 @@
+/////////////// * Główny Kontener gry i Renderer *  //////////////////////////
 let mainContainer = new PIXI.Container(); 
 const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.view); 
+
+/////////////// * Loader *  //////////////////////////
 
 PIXI.loader
 .add("menuTileset", "files/images/menuTilesets/menuTileset.json")
 .load(setup);
 
-let idMenuTexture;
-let playerArray = []; 
+/////////////// * GlobalneZmienne *  //////////////////////////
+
+
+
+/////////////// * Obiekt całego Menu *  //////////////////////////
 
 let menu = {
 
@@ -107,31 +113,14 @@ let menu = {
         };
 
         this.newGame.click = function() {
-            
-
-            menu.secondWindow.backgroundInitialization();
-            menu.newGameWindow.playersListSectionInitialization();
-            for (let i = 0; i>8; i++) {
-                playerArray[i] = new menu.newGameWindow; 
-            }
-            menu.newGameWindow.playerSectionInitialization();
-            menu.newGameWindow.mapsSectionInitialization();
-            menu.newGameWindow.mapsReviewSectionInitialization();
-            menu.newGameWindow.startSectionInitialization();
-            menu.secondWindow.backButtonInitialization();
-                
-            menu.newGame.destroy();
-            menu.profil.destroy();
-            menu.tutorial.destroy();
-            menu.music.destroy();
-            menu.credits.destroy();
-
-            console.log(playerArray[1]);
+            menuNewGameWindowInitializations();
+            menuNewGameWindowDestroyers();
             menu.newGameWindowStatement = true;    
         };
     },
 
     newGameWindowStatement : false,
+    menuPlayers : [],
     newGameWindow : {
         playersListSection : {},
         playersListSectionInitialization : function() {
@@ -145,32 +134,42 @@ let menu = {
             
         },
 
-        playerSection : {},
-        playerSectionInitialization : function() {
-            this.playerSection = new PIXI.Sprite.fromFrame("playerWindow.png");
-            this.playerSection.interactive = true;
-            this.playerSection.buttonMode = true;
-            this.playerSection.width = 480;
-            this.playerSection.height = 75;
-            this.playerSection.position.set(this.playersListSection.x + 10, this.playersListSection.y + 5);
-            mainContainer.addChild(this.playerSection);
-        },
-        playerSectionFunctionality : function() {
-            this.playerSection.mouseover = function() {
-                menu.newGameWindow.playerSection.texture = PIXI.Texture.fromFrame("playerWindowHover.png");
-            };
+        PlayerSection : class {
+            constructor() {  
+                this.playerSection = new PIXI.Sprite.fromFrame("playerWindow.png");
+                this.playerSection.interactive = true;
+                this.playerSection.buttonMode = true;
+                this.playerSection.hoverStatement = false;
+                this.playerSection.width = 480;
+                this.playerSection.height = 75;
+                this.playerSection.position.set(menu.newGameWindow.playersListSection.x + 10, menu.newGameWindow.playersListSection.y + 30);
+                mainContainer.addChild(this.playerSection);
+                
+            }
 
-            this.playerSection.mouseout = function() {
-                menu.newGameWindow.playerSection.texture = PIXI.Texture.fromFrame("playerWindow.png");
-            };
+            playerSectionFunctionality() {
+                this.playerSection.mouseover = function() {
+                    this.hoverStatement = true;
+                };
+
+                this.playerSection.mouseout = function() {
+                    this.hoverStatement = false;
+                };
+                
+                if(this.playerSection.hoverStatement) {
+                    this.playerSection.texture = PIXI.Texture.fromFrame("playerWindowHover.png");
+                } else {
+                    this.playerSection.texture = PIXI.Texture.fromFrame("playerWindow.png");
+                }
+            }
         },
 
         mapsSection : {},
         mapsSectionInitialization : function() {
             this.mapsSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
-            this.mapsSection.width = 300;
+            this.mapsSection.width = 350;
             this.mapsSection.height = 600;
-            this.mapsSection.position.set(this.playersListSection.width + this.playersListSection.x + 100, 150);
+            this.mapsSection.position.set(window.innerWidth/2 - this.mapsSection.width/2, 150);
             mainContainer.addChild(this.mapsSection);
         },
         mapsSectionFunctionality : function() {
@@ -449,6 +448,8 @@ let menu = {
 
 };
 
+/////////////// * Grupowane Inicjalizacje elementów Menu *  //////////////////////////
+/////////////////////// Całego Menu //////////////////////////
 let menuInitializations = function() {
     menu.backgroundInitialization();
     menu.logoInitialization();
@@ -458,13 +459,42 @@ let menuInitializations = function() {
     menu.musicInitialization();
     menu.creditsInitialization();
 };
+/////////////////////// Okno NewGame //////////////////////////
+let menuNewGameWindowInitializations = function() {
+    menu.secondWindow.backgroundInitialization();
+    menu.newGameWindow.playersListSectionInitialization();
+
+    for(i = 0; i < 7; i++) {
+        menu.menuPlayers[i] = new menu.newGameWindow.PlayerSection();
+        menu.menuPlayers[i].playerSection.y += 70 * i;
+    }
+            
+    menu.newGameWindow.mapsSectionInitialization();
+    menu.newGameWindow.mapsReviewSectionInitialization();
+    menu.newGameWindow.startSectionInitialization();
+    menu.secondWindow.backButtonInitialization();
+};
+
+let menuNewGameWindowDestroyers = function() {
+    menu.newGame.destroy();
+    menu.profil.destroy();
+    menu.tutorial.destroy();
+    menu.music.destroy();
+    menu.credits.destroy();
+}
+
+/////////////// * Grupowane Funkcjonalności elementów Menu do gameInitiate *  //////////////////////////
 
 let menuFunctionalities = function() {
     menu.newGameFunctionality();
 
     if(menu.newGameWindowStatement) {
         menu.secondWindow.backButtonFunctionality();
-        menu.newGameWindow.playerSectionFunctionality();
+
+        for(i = 0; i < 7; i++) {    
+            menu.menuPlayers[i].playerSectionFunctionality();
+        }
+
     }
 
     menu.profilFunctionality();
@@ -489,6 +519,8 @@ let menuFunctionalities = function() {
     }
     
 };
+
+/////////////// * Funkcje Uruchamiające grę *  //////////////////////////
 
 function setup() {
     menuInitializations();
