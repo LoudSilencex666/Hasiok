@@ -121,6 +121,7 @@ let menu = {
 
     newGameWindowStatement : false,
     menuPlayers : [],
+    mapsPositioners : [],
     newGameWindow : {
         playersListSection : {},
         playersListSectionInitialization : function() {
@@ -166,7 +167,7 @@ let menu = {
 
         mapsSection : {},
         mapsSectionInitialization : function() {
-            this.mapsSection = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
+            this.mapsSection = new PIXI.Sprite.fromFrame("mapsList.png");
             this.mapsSection.width = 350;
             this.mapsSection.height = 600;
             this.mapsSection.position.set(window.innerWidth/2 - this.mapsSection.width/2, 150);
@@ -174,6 +175,35 @@ let menu = {
         },
         mapsSectionFunctionality : function() {
 
+        },
+        MapPositioner : class {
+            constructor() {  
+                this.mapPositioner = new PIXI.Sprite.fromFrame("mapsPosition.png");
+                this.mapPositioner.interactive = true;
+                this.mapPositioner.buttonMode = true;
+                this.mapPositioner.hoverStatement = false;
+                this.mapPositioner.width = 340;
+                this.mapPositioner.height = 50;
+                this.mapPositioner.position.set(menu.newGameWindow.mapsSection.x + 5, menu.newGameWindow.mapsSection.y + 20);
+                mainContainer.addChild(this.mapPositioner);
+                
+            }
+
+            mapPositionerFunctionality() {
+                this.mapPositioner.mouseover = function() {
+                    this.hoverStatement = true;
+                };
+
+                this.mapPositioner.mouseout = function() {
+                    this.hoverStatement = false;
+                };
+                
+                if(this.mapPositioner.hoverStatement) {
+                    this.mapPositioner.texture = PIXI.Texture.fromFrame("mapsPositionHover.png");
+                } else {
+                    this.mapPositioner.texture = PIXI.Texture.fromFrame("mapsPosition.png");
+                }
+            }
         },
 
         mapsReviewSection : {},
@@ -470,6 +500,13 @@ let menuNewGameWindowInitializations = function() {
     }
             
     menu.newGameWindow.mapsSectionInitialization();
+    
+    for(i = 0; i < 10; i++) {
+        menu.mapsPositioners[i] = new menu.newGameWindow.MapPositioner();
+        menu.mapsPositioners[i].mapPositioner.y += 50 * i;
+    }
+
+    console.log(menu.mapsPositioners);
     menu.newGameWindow.mapsReviewSectionInitialization();
     menu.newGameWindow.startSectionInitialization();
     menu.secondWindow.backButtonInitialization();
@@ -493,6 +530,10 @@ let menuFunctionalities = function() {
 
         for(i = 0; i < 7; i++) {    
             menu.menuPlayers[i].playerSectionFunctionality();
+        }
+
+        for(i = 0; i < 10; i++) {    
+            menu.mapsPositioners[i].mapPositionerFunctionality();
         }
 
     }

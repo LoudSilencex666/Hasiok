@@ -2,7 +2,7 @@
 
 "buttonBack.png":
 {
-	"frame": {"x":2880,"y":220,"w":700,"h":200},
+	"frame": {"x":720,"y":617,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -11,7 +11,7 @@
 },
 "buttonBackHover.png":
 {
-	"frame": {"x":1440,"y":220,"w":700,"h":200},
+	"frame": {"x":0,"y":1057,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -20,7 +20,7 @@
 },
 "buttonCredits.png":
 {
-	"frame": {"x":2160,"y":220,"w":700,"h":200},
+	"frame": {"x":720,"y":837,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -29,7 +29,7 @@
 },
 "buttonCreditsHover.png":
 {
-	"frame": {"x":0,"y":440,"w":700,"h":200},
+	"frame": {"x":720,"y":1277,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -38,7 +38,7 @@
 },
 "buttonMusic.png":
 {
-	"frame": {"x":720,"y":440,"w":700,"h":200},
+	"frame": {"x":0,"y":1277,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -47,7 +47,7 @@
 },
 "buttonMusicHover.png":
 {
-	"frame": {"x":720,"y":220,"w":700,"h":200},
+	"frame": {"x":720,"y":1057,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -56,7 +56,7 @@
 },
 "buttonNewGame.png":
 {
-	"frame": {"x":720,"y":0,"w":700,"h":200},
+	"frame": {"x":0,"y":837,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -65,7 +65,7 @@
 },
 "buttonNewGameHover.png":
 {
-	"frame": {"x":0,"y":0,"w":700,"h":200},
+	"frame": {"x":720,"y":397,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -74,7 +74,7 @@
 },
 "buttonProfil.png":
 {
-	"frame": {"x":0,"y":220,"w":700,"h":200},
+	"frame": {"x":0,"y":177,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -83,7 +83,7 @@
 },
 "buttonProfilHover.png":
 {
-	"frame": {"x":1440,"y":0,"w":700,"h":200},
+	"frame": {"x":0,"y":617,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -92,7 +92,7 @@
 },
 "buttonTutorial.png":
 {
-	"frame": {"x":2880,"y":0,"w":700,"h":200},
+	"frame": {"x":720,"y":177,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
@@ -101,16 +101,43 @@
 },
 "buttonTutorialHover.png":
 {
-	"frame": {"x":2160,"y":0,"w":700,"h":200},
+	"frame": {"x":0,"y":397,"w":700,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":200},
 	"sourceSize": {"w":700,"h":200},
 	"pivot": {"x":0.5,"y":0.5}
 },
+"mapsList.png":
+{
+	"frame": {"x":0,"y":2819,"w":700,"h":1200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":1200},
+	"sourceSize": {"w":700,"h":1200},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"mapsPosition.png":
+{
+	"frame": {"x":720,"y":0,"w":700,"h":157},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":157},
+	"sourceSize": {"w":700,"h":157},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"mapsPositionHover.png":
+{
+	"frame": {"x":0,"y":0,"w":700,"h":157},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":700,"h":157},
+	"sourceSize": {"w":700,"h":157},
+	"pivot": {"x":0.5,"y":0.5}
+},
 "menuBackground.png":
 {
-	"frame": {"x":0,"y":662,"w":1920,"h":1080},
+	"frame": {"x":0,"y":1719,"w":1920,"h":1080},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
@@ -119,7 +146,7 @@
 },
 "playerList.png":
 {
-	"frame": {"x":1940,"y":662,"w":1000,"h":1200},
+	"frame": {"x":720,"y":2819,"w":1000,"h":1200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":1200},
@@ -128,7 +155,7 @@
 },
 "playerWindow.png":
 {
-	"frame": {"x":1440,"y":440,"w":1000,"h":202},
+	"frame": {"x":0,"y":1497,"w":1000,"h":202},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":202},
@@ -137,7 +164,7 @@
 },
 "playerWindowHover.png":
 {
-	"frame": {"x":2460,"y":440,"w":1000,"h":202},
+	"frame": {"x":1020,"y":1497,"w":1000,"h":202},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":202},
@@ -149,8 +176,8 @@
 	"version": "1.0",
 	"image": "menuTileset.png",
 	"format": "RGBA8888",
-	"size": {"w":3580,"h":1862},
+	"size": {"w":2020,"h":4019},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:0ce054d4a83b410efa1bca402c12e1de:022c1d2ad01b90c2916e8ac653cab54c:9a274df377f3133edf7d0836970cc9fa$"
+	"smartupdate": "$TexturePacker:SmartUpdate:f9dd2edc8a2e780b5927b5ec8eb77097:40ce5901c1b493c23a48267702eb98cc:9a274df377f3133edf7d0836970cc9fa$"
 }
 }
