@@ -223,6 +223,33 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">files/images/menuPics/mapsList.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>175,300,350,600</rect>
+                <key>scale9Paddings</key>
+                <rect>175,300,350,600</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">files/images/menuPics/mapsPosition.png</key>
+            <key type="filename">files/images/menuPics/mapsPositionHover.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>175,39,350,79</rect>
+                <key>scale9Paddings</key>
+                <rect>175,39,350,79</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">files/images/menuPics/menuBackground.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -282,6 +309,9 @@
             <filename>files/images/menuPics/playerWindowHover.png</filename>
             <filename>files/images/menuPics/playerList.png</filename>
             <filename>files/images/menuPics/playerWindow.png</filename>
+            <filename>files/images/menuPics/mapsPositionHover.png</filename>
+            <filename>files/images/menuPics/mapsList.png</filename>
+            <filename>files/images/menuPics/mapsPosition.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
