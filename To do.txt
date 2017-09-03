@@ -1,0 +1,4 @@
+Do zrobienia: 
+Napisy map (newGameContent),
+Funkcje destroy'ery do profil, tuturial, music/credits.
+ 
