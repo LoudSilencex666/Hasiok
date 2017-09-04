@@ -13,10 +13,6 @@ PIXI.loader
 let menuStatement = true;
 let gameStatement = false;
 
-let earthPlanetsQuantity = 1;
-let icePlanetsQuantity = 1;
-let firePlanetsQuantity = 1;
-
 /////////////// * Obiekt całego Menu *  //////////////////////////
 
 let menu = {
@@ -91,6 +87,7 @@ let menu = {
                     menu.newGameWindow.playersListSection.destroy();
                     menu.newGameWindow.mapsSection.destroy();
                     menu.newGameWindow.mapsReviewSection.destroy();
+                    menu.newGameWindow.startSection.destroy();
 
                     for(i = 0; i < 7; i++) {
                         menu.menuPlayers[i].playerSection.destroy();
@@ -99,6 +96,7 @@ let menu = {
 
                     for(i = 0; i < maps.length; i++) {
                         menu.mapsPositioners[i].mapPositioner.destroy();
+                        menu.mapsPositioners[i].mapPositionerContent.destroy();
                     }
                 }
 
@@ -160,6 +158,7 @@ let menu = {
         "Wilgotny Zbigniew"
     ],
     mapsPositioners : [],
+    mapsPositionersQueue : [0],
     newGameWindow : {
         playersListSection : {},
         playersListSectionInitialization : function() {
@@ -222,6 +221,7 @@ let menu = {
                 this.mapPositioner.buttonMode = true;
                 this.mapPositioner.hoverStatement = false;
                 this.mapPositioner.clickStatement = false;
+                this.mapPositioner.mapNumber = 0;
                 this.mapPositioner.width = 340;
                 this.mapPositioner.height = 50;
                 this.mapPositioner.position.set(menu.newGameWindow.mapsSection.x + 5, menu.newGameWindow.mapsSection.y + 20);
@@ -240,9 +240,13 @@ let menu = {
                     this.hoverStatement = false;
                 };
 
-                this.mapPositioner.click = function() {
-                    this.clickStatement = true;
-                };
+                this.mapPositioner.on('pointerdown', function(e) {
+                    menu.mapsPositionersQueue.splice(0, 1, this.mapNumber);
+                    
+                    
+                }) 
+                    
+                
                 
                 if(this.mapPositioner.hoverStatement) {
                     this.mapPositioner.texture = PIXI.Texture.fromFrame("mapsPositionHover.png");
@@ -250,8 +254,11 @@ let menu = {
                     this.mapPositioner.texture = PIXI.Texture.fromFrame("mapsPosition.png");
                 }
 
-                if(this.mapPositioner.clickStatement) {
+                if(menu.mapsPositionersQueue[0] === this.mapPositioner.mapNumber) {
                     this.mapPositioner.texture = PIXI.Texture.fromFrame("mapsPositionHover.png");
+                    chosenMap = maps[this.mapPositioner.mapNumber];
+                } else if(menu.mapsPositionersQueue[0] !== this.mapPositioner.mapNumber && !this.mapPositioner.hoverStatement) {
+                    this.mapPositioner.texture = PIXI.Texture.fromFrame("mapsPosition.png");
                 }
             }
         },
@@ -321,6 +328,7 @@ let menu = {
                 menu.creditsWindowStatement = false;
 
                 // inicjalizacja gry
+                console.log(chosenMap);
                 gameInitializations();
                 gameStatement = true;
 
@@ -577,26 +585,44 @@ let maps = [
     {
         name : "testMap",
         players : 2,
-        planets : 10,
-        earthPlanets : 2,
-        icePlanets : 4,
-        firePlanets : 4,
+        allPlanetsQuantity : 10,
+        earthPlanetsQuantity : 2,
+        earthPlanetsXs : [214, 690],
+        earthPlanetsYs : [893, 123],
+        icePlanetsQuantity : 4,
+        icePlanetsXs : [345, 18, 562, 924],
+        icePlanetsYs : [944, 120, 834, 111],
+        firePlanetsQuantity : 1,
+        firePlanetsXs : [1288],
+        firePlanetsYs : [12],
     }, 
     {
-        name : "testMap2",
+        name : "Na razie Nie działa",
         players : 4,
-        planets : 10,
-        earthPlanets : 2,
-        icePlanets : 4,
-        firePlanets : 4,
+        allPlanetsQuantity : 20,
+        earthPlanetsQuantity : 10,
+        earthPlanetsXs : [214, 690],
+        earthPlanetsYs : [893, 123],
+        icePlanetsQuantity : 4,
+        firePlanetsQuantity : 6,
     },
+    {
+        name : "Na razie Nie działa",
+        players : 8,
+        allPlanetsQuantity : 40,
+        earthPlanetsQuantity : 20,
+        earthPlanetsXs : [214, 690],
+        earthPlanetsYs : [893, 123],
+        icePlanetsQuantity : 10,
+        firePlanetsQuantity : 10,
+    }
 ];
 
 /////////////// * Wybrana Mapa *  //////////////////////////
 
 let chosenMap = {};
 let choosingMap = function() {
-
+    chosenMap = maps[0];
 }
 
 /////////////// * Obiekt Planet *  //////////////////////////
@@ -708,12 +734,15 @@ let menuNewGameWindowInitializations = function() {
         menu.mapsPositioners[i].mapPositionerContent.text = maps[i].name;
         menu.mapsPositioners[i].mapPositioner.y += 50 * i;
         menu.mapsPositioners[i].mapPositionerContent.y += 50 * i;
+        menu.mapsPositioners[i].mapPositioner.mapNumber = i;
     }
-
+    
     console.log(menu.mapsPositioners);
     menu.newGameWindow.mapsReviewSectionInitialization();
     menu.newGameWindow.startSectionInitialization();
     menu.secondWindow.backButtonInitialization();
+    
+    choosingMap();
 };
 
 let menuNewGameWindowDestroyers = function() {
@@ -729,25 +758,24 @@ let menuNewGameWindowDestroyers = function() {
 /////////////// * Grupowane Inicjalizacje elementów Game *  //////////////////////////
 /////////////////////// Całego Game //////////////////////////
 let gameInitializations = function() {
-    for(i = 0; i < earthPlanetsQuantity; i++) {
+    for(i = 0; i < chosenMap.earthPlanetsQuantity; i++) {
         planets.earthPlanets[i] = new planets.EarthPlanet();
-        planets.earthPlanets[i].earthPlanet.x = 50 * i;
-        planets.earthPlanets[i].earthPlanet.y = 50 * i;    
+        planets.earthPlanets[i].earthPlanet.x = chosenMap.earthPlanetsXs[i];
+        planets.earthPlanets[i].earthPlanet.y = chosenMap.earthPlanetsYs[i];    
     }
 
-    for(i = 0; i < icePlanetsQuantity; i++) {
+    for(i = 0; i < chosenMap.icePlanetsQuantity; i++) {
         planets.icePlanets[i] = new planets.IcePlanet();
-        planets.icePlanets[i].icePlanet.x += 50 * i;
-        planets.icePlanets[i].icePlanet.y += 50 * i;
+        planets.icePlanets[i].icePlanet.x = chosenMap.icePlanetsXs[i];
+        planets.icePlanets[i].icePlanet.y = chosenMap.icePlanetsYs[i];
     }
 
-    for(i = 0; i < firePlanetsQuantity; i++) {
+    for(i = 0; i < chosenMap.firePlanetsQuantity; i++) {
         planets.firePlanets[i] = new planets.FirePlanet();
-        planets.firePlanets[i].firePlanet.x += 50 * i;
-        planets.firePlanets[i].firePlanet.y += 50 * i;
+        planets.firePlanets[i].firePlanet.x = chosenMap.firePlanetsXs[i];
+        planets.firePlanets[i].firePlanet.y = chosenMap.firePlanetsYs[i];
     }
 
-    console.log(planets.earthPlanets);
     
 }
 
@@ -766,6 +794,8 @@ let menuFunctionalities = function() {
         for(i = 0; i < maps.length; i++) {    
             menu.mapsPositioners[i].mapPositionerFunctionality();
         }
+
+        
 
         menu.newGameWindow.startSectionFunctionality();
 
@@ -797,15 +827,15 @@ let menuFunctionalities = function() {
 /////////////// * Grupowane Funkcjonalności elementów Game do gameInitiate *  //////////////////////////
 
 let gameFunctionalities = function() {
-    for(i = 0; i < earthPlanetsQuantity; i++) {
+    for(i = 0; i < chosenMap.earthPlanetsQuantity; i++) {
         planets.earthPlanets[i].earthPlanetFunctionality();
     }
 
-    for(i = 0; i < icePlanetsQuantity; i++) {
+    for(i = 0; i < chosenMap.icePlanetsQuantity; i++) {
         planets.icePlanets[i].icePlanetFunctionality(); 
     }
 
-    for(i = 0; i < firePlanetsQuantity; i++) {
+    for(i = 0; i < chosenMap.firePlanetsQuantity; i++) {
         planets.firePlanets[i].firePlanetFunctionality();
     }
 }
