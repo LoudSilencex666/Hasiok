@@ -97,7 +97,7 @@ let menu = {
                         menu.menuPlayers[i].playerSectionContent.destroy();
                     }
 
-                    for(i = 0; i < 10; i++) {
+                    for(i = 0; i < maps.length; i++) {
                         menu.mapsPositioners[i].mapPositioner.destroy();
                     }
                 }
@@ -284,7 +284,10 @@ let menu = {
             this.startSection.click = function() {
                 
                 menuStatement = false;
-                // usuwanie newGameWindow 
+
+
+                // usuwanie newGameWindow
+                
                 menu.secondWindow.background.destroy();
                 menu.secondWindow.backButton.destroy();
                 
@@ -352,11 +355,7 @@ let menu = {
             menu.profilWindow.infoDisplaySectionInitialization()
             menu.secondWindow.backButtonInitialization();
                 
-            menu.newGame.destroy();
-            menu.profil.destroy();
-            menu.tutorial.destroy();
-            menu.music.destroy();
-            menu.credits.destroy();
+            menuNewGameWindowDestroyers();
 
             menu.profilWindowStatement = true;    
         };
@@ -571,6 +570,7 @@ let menu = {
 let maps = [
     {
         name : "testMap",
+        players : 2,
         planets : 10,
         earthPlanets : 2,
         icePlanets : 4,
@@ -578,12 +578,20 @@ let maps = [
     }, 
     {
         name : "testMap2",
+        players : 4,
         planets : 10,
         earthPlanets : 2,
         icePlanets : 4,
         firePlanets : 4,
     },
-]
+];
+
+/////////////// * Wybrana Mapa *  //////////////////////////
+
+let chosenMap = {};
+let choosingMap = function() {
+
+}
 
 /////////////// * Obiekt Planet *  //////////////////////////
 
