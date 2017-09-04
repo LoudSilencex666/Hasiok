@@ -102,6 +102,12 @@ let menu = {
                     }
                 }
 
+                if(menu.profilWindowStatement) {
+                    menu.profilWindow.titleSection.destroy();
+                    menu.profilWindow.listSection.destroy()
+                    menu.profilWindow.infoDisplaySection.destroy();
+                }
+
                 menu.newGameWindowStatement = false;
                 menu.profilWindowStatement = false;
                 menu.tutorialWindowStatement = false;
