@@ -106,6 +106,12 @@ let menu = {
                     menu.profilWindow.infoDisplaySection.destroy();
                 }
 
+                if(menu.tutorialWindowStatement) {
+                    menu.tutorialWindow.instructionLeftSection.destroy();
+                    menu.tutorialWindow.instructionSection.destroy();
+                    menu.tutorialWindow.instructionRightSection.destroy();
+                }
+
                 menu.newGameWindowStatement = false;
                 menu.profilWindowStatement = false;
                 menu.tutorialWindowStatement = false;
@@ -445,11 +451,7 @@ let menu = {
             menu.tutorialWindow.instructionRightSectionInitialization();
             menu.secondWindow.backButtonInitialization();
                 
-            menu.newGame.destroy();
-            menu.profil.destroy();
-            menu.tutorial.destroy();
-            menu.music.destroy();
-            menu.credits.destroy();
+            menuNewGameWindowDestroyers();
 
             menu.tutorialWindowStatement = true;    
         };
