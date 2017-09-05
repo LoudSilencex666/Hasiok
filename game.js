@@ -524,11 +524,7 @@ let menu = {
             menu.secondWindow.backgroundInitialization();
             menu.secondWindow.backButtonInitialization();
                 
-            menu.newGame.destroy();
-            menu.profil.destroy();
-            menu.tutorial.destroy();
-            menu.music.destroy();
-            menu.credits.destroy();
+            menuNewGameWindowDestroyers();
 
             menu.musicWindowStatement = true;    
         };
@@ -565,11 +561,7 @@ let menu = {
             menu.secondWindow.backgroundInitialization();
             menu.secondWindow.backButtonInitialization();
                 
-            menu.newGame.destroy();
-            menu.profil.destroy();
-            menu.tutorial.destroy();
-            menu.music.destroy();
-            menu.credits.destroy();
+            menuNewGameWindowDestroyers();
 
             menu.creditsWindowStatement = true;    
         };
