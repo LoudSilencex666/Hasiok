@@ -10,8 +10,11 @@ PIXI.loader
 .load(setup);
 
 /////////////// * GlobalneZmienne *  //////////////////////////
+const resolutionXDivide = 48;
+const resolutionYDivide = 27;
 let menuStatement = true;
 let gameStatement = false;
+let maps = [];
 
 /////////////// * Obiekt całego Menu *  //////////////////////////
 
@@ -334,6 +337,7 @@ let menu = {
                 menu.creditsWindowStatement = false;
 
                 // inicjalizacja gry
+                
                 console.log(chosenMap);
                 gameInitializations();
                 gameStatement = true;
@@ -573,44 +577,59 @@ let menu = {
 
 };
 
-/////////////// * Obiekt Map *  //////////////////////////
-
-let maps = [
-    {
-        name : "testMap",
-        players : 2,
-        allPlanetsQuantity : 10,
-        earthPlanetsQuantity : 2,
-        earthPlanetsXs : [214, 690],
-        earthPlanetsYs : [893, 123],
-        icePlanetsQuantity : 4,
-        icePlanetsXs : [345, 18, 562, 924],
-        icePlanetsYs : [944, 120, 834, 111],
-        firePlanetsQuantity : 1,
-        firePlanetsXs : [1288],
-        firePlanetsYs : [12],
-    }, 
-    {
-        name : "Na razie Nie działa",
-        players : 4,
-        allPlanetsQuantity : 20,
-        earthPlanetsQuantity : 10,
-        earthPlanetsXs : [214, 690],
-        earthPlanetsYs : [893, 123],
-        icePlanetsQuantity : 4,
-        firePlanetsQuantity : 6,
-    },
-    {
-        name : "Na razie Nie działa",
-        players : 8,
-        allPlanetsQuantity : 40,
-        earthPlanetsQuantity : 20,
-        earthPlanetsXs : [214, 690],
-        earthPlanetsYs : [893, 123],
-        icePlanetsQuantity : 10,
-        firePlanetsQuantity : 10,
+/////////////// * Obiekt Interfejsu *  //////////////////////////
+let xGameScreen = [];
+let yGameScreen = [];
+let gameScreenNet = function() {
+    for (i = 0; i < resolutionXDivide; i++) {
+        xGameScreen[i] = Math.round( window.innerWidth / resolutionXDivide + window.innerWidth / resolutionXDivide * i);
     }
-];
+
+    for (i = 0; i < resolutionYDivide; i++) {
+        yGameScreen[i] = Math.round(window.innerHeight / resolutionYDivide + window.innerHeight / resolutionYDivide * i);
+    }
+
+};
+
+/////////////// * Obiekt Map *  //////////////////////////
+mapsInitialization = function() {
+    maps = [
+        {
+            name : "testMap",
+            players : 2,
+            allPlanetsQuantity : 10,
+            earthPlanetsQuantity : 2,
+            earthPlanetsXs : [xGameScreen[0], xGameScreen[46]],
+            earthPlanetsYs : [yGameScreen[0], yGameScreen[25]],
+            icePlanetsQuantity : 4,
+            icePlanetsXs : [xGameScreen[0], xGameScreen[46], xGameScreen[23], xGameScreen[13]],
+            icePlanetsYs : [yGameScreen[25], yGameScreen[0], yGameScreen[20], yGameScreen[5]],
+            firePlanetsQuantity : 1,
+            firePlanetsXs : [xGameScreen[22]],
+            firePlanetsYs : [yGameScreen[19]],
+        }, 
+        {
+            name : "Na razie Nie działa",
+            players : 4,
+            allPlanetsQuantity : 20,
+            earthPlanetsQuantity : 10,
+            earthPlanetsXs : [214, 690],
+            earthPlanetsYs : [893, 123],
+            icePlanetsQuantity : 4,
+            firePlanetsQuantity : 6,
+        },
+        {
+            name : "Na razie Nie działa",
+            players : 8,
+            allPlanetsQuantity : 40,
+            earthPlanetsQuantity : 20,
+            earthPlanetsXs : [214, 690],
+            earthPlanetsYs : [893, 123],
+            icePlanetsQuantity : 10,
+            firePlanetsQuantity : 10,
+        }
+    ];
+}
 
 /////////////// * Wybrana Mapa *  //////////////////////////
 
@@ -630,8 +649,9 @@ let planets = {
         constructor() {
             this.earthPlanet = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
             this.earthPlanet.interactive = true;
-            this.earthPlanet.width = 80;
-            this.earthPlanet.height = 80;
+            this.earthPlanet.width = 30;
+            this.earthPlanet.height = 30;
+            this.earthPlanet.anchor.set(0.5, 0.5);
             this.earthPlanet.position.set(0, 0);
             mainContainer.addChild(this.earthPlanet);
         }
@@ -654,8 +674,9 @@ let planets = {
         constructor() {
             this.icePlanet = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolderBlue.png");
             this.icePlanet.interactive = true;
-            this.icePlanet.width = 80;
-            this.icePlanet.height = 80;
+            this.icePlanet.width = 30;
+            this.icePlanet.height = 30;
+            this.icePlanet.anchor.set(0.5, 0.5);
             this.icePlanet.position.set(500, 0);
             mainContainer.addChild(this.icePlanet);
         }
@@ -678,8 +699,9 @@ let planets = {
         constructor() {
             this.firePlanet = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolderRed.png");
             this.firePlanet.interactive = true;
-            this.firePlanet.width = 80;
-            this.firePlanet.height = 80;
+            this.firePlanet.width = 30;
+            this.firePlanet.height = 30;
+            this.firePlanet.anchor.set(0.5, 0.5);
             this.firePlanet.position.set(800, 0);
             mainContainer.addChild(this.firePlanet);
         }
@@ -706,6 +728,7 @@ let menuInitializations = function() {
     menu.tutorialInitialization(); 
     menu.musicInitialization();
     menu.creditsInitialization();
+    
 };
 /////////////////////// Okno NewGame //////////////////////////
 let menuNewGameWindowInitializations = function() {
@@ -731,7 +754,7 @@ let menuNewGameWindowInitializations = function() {
         menu.mapsPositioners[i].mapPositioner.mapNumber = i;
     }
     
-    console.log(menu.mapsPositioners);
+    console.log(xGameScreen, yGameScreen, window.innerWidth, window.innerHeight);
     menu.newGameWindow.mapsReviewSectionInitialization();
     menu.newGameWindow.startSectionInitialization();
     menu.secondWindow.backButtonInitialization();
@@ -752,6 +775,8 @@ let menuNewGameWindowDestroyers = function() {
 /////////////// * Grupowane Inicjalizacje elementów Game *  //////////////////////////
 /////////////////////// Całego Game //////////////////////////
 let gameInitializations = function() {
+    
+    
     for(i = 0; i < chosenMap.earthPlanetsQuantity; i++) {
         planets.earthPlanets[i] = new planets.EarthPlanet();
         planets.earthPlanets[i].earthPlanet.x = chosenMap.earthPlanetsXs[i];
@@ -837,8 +862,9 @@ let gameFunctionalities = function() {
 /////////////// * Funkcje Uruchamiające grę *  //////////////////////////
 
 function setup() {
+    gameScreenNet();
+    mapsInitialization();
     menuInitializations();
-
     gameInitiate();
 };
 
