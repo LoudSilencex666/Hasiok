@@ -597,16 +597,16 @@ mapsInitialization = function() {
         {
             name : "testMap",
             players : 2,
-            allPlanetsQuantity : 10,
-            earthPlanetsQuantity : 2,
-            earthPlanetsXs : [xGameScreen[0], xGameScreen[46]],
-            earthPlanetsYs : [yGameScreen[0], yGameScreen[25]],
+            allPlanetsQuantity : 16,
+            earthPlanetsQuantity : 10,
+            earthPlanetsXs : [xGameScreen[18], xGameScreen[28], xGameScreen[12], xGameScreen[34], xGameScreen[12], xGameScreen[34], xGameScreen[6],  xGameScreen[40], xGameScreen[15], xGameScreen[31]],
+            earthPlanetsYs : [yGameScreen[12], yGameScreen[12], yGameScreen[6],  yGameScreen[6],  yGameScreen[18], yGameScreen[18], yGameScreen[12], yGameScreen[12], yGameScreen[2], xGameScreen[22]],
             icePlanetsQuantity : 4,
-            icePlanetsXs : [xGameScreen[0], xGameScreen[46], xGameScreen[23], xGameScreen[13]],
-            icePlanetsYs : [yGameScreen[25], yGameScreen[0], yGameScreen[20], yGameScreen[5]],
-            firePlanetsQuantity : 1,
-            firePlanetsXs : [xGameScreen[22]],
-            firePlanetsYs : [yGameScreen[19]],
+            icePlanetsXs :   [xGameScreen[5],  xGameScreen[5], xGameScreen[41], xGameScreen[41]],
+            icePlanetsYs :   [yGameScreen[23], yGameScreen[1], yGameScreen[23], yGameScreen[1]],
+            firePlanetsQuantity : 2,
+            firePlanetsXs :  [xGameScreen[25], xGameScreen[21]],
+            firePlanetsYs :  [yGameScreen[2], xGameScreen[22]],
         }, 
         {
             name : "Na razie Nie działa",
@@ -648,8 +648,8 @@ let planets = {
         constructor() {
             this.earthPlanet = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolder.png");
             this.earthPlanet.interactive = true;
-            this.earthPlanet.width = 30;
-            this.earthPlanet.height = 30;
+            this.earthPlanet.width = 70;
+            this.earthPlanet.height = 70;
             this.earthPlanet.anchor.set(0.5, 0.5);
             this.earthPlanet.position.set(0, 0);
             this.earthPlanet.starshipCounter = 0;
@@ -683,8 +683,8 @@ let planets = {
         constructor() {
             this.icePlanet = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolderBlue.png");
             this.icePlanet.interactive = true;
-            this.icePlanet.width = 30;
-            this.icePlanet.height = 30;
+            this.icePlanet.width = 70;
+            this.icePlanet.height = 70;
             this.icePlanet.anchor.set(0.5, 0.5);
             this.icePlanet.position.set(500, 0);
             this.icePlanet.starshipCounter = 0;
@@ -719,8 +719,8 @@ let planets = {
         constructor() {
             this.firePlanet = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolderRed.png");
             this.firePlanet.interactive = true;
-            this.firePlanet.width = 30;
-            this.firePlanet.height = 30;
+            this.firePlanet.width = 70;
+            this.firePlanet.height = 70;
             this.firePlanet.anchor.set(0.5, 0.5);
             this.firePlanet.position.set(800, 0);
             this.firePlanet.starshipCounter = 0;
