@@ -641,7 +641,6 @@ let choosingMap = function() {
 /////////////// * Obiekt Planet *  //////////////////////////
 
 let planets = {
-
 /////////////////////// Planeta Ziemiasta  //////////////////////////
 
     earthPlanets : [],
@@ -653,6 +652,7 @@ let planets = {
             this.earthPlanet.height = 30;
             this.earthPlanet.anchor.set(0.5, 0.5);
             this.earthPlanet.position.set(0, 0);
+            this.earthPlanet.starshipCounter = 0;
             mainContainer.addChild(this.earthPlanet);
         }
    
@@ -663,6 +663,15 @@ let planets = {
 
             this.earthPlanet.mouseout = function() {
                 this.alpha += 1;
+            };
+            this.earthPlanet.click = function(e) {
+                let s = starships.testStarships;
+                s[this.starshipCounter] = new starships.TestStarship();
+                s[this.starshipCounter].testStarship.position.set(this.x + this.width * 1.5, this.y + Math.floor((Math.random() * 30) + 1));
+                s[this.starshipCounter].testStarship.visible = true; 
+                this.starshipCounter++;
+                console.log(s);    
+                   
             };
         }
     },
@@ -678,6 +687,7 @@ let planets = {
             this.icePlanet.height = 30;
             this.icePlanet.anchor.set(0.5, 0.5);
             this.icePlanet.position.set(500, 0);
+            this.icePlanet.starshipCounter = 0;
             mainContainer.addChild(this.icePlanet);
         }
    
@@ -688,6 +698,16 @@ let planets = {
 
             this.icePlanet.mouseout = function() {
                 this.alpha += 1;
+            };
+
+            this.icePlanet.click = function(e) {
+                let s = starships.testStarships;
+                s[this.starshipCounter] = new starships.TestStarship();
+                s[this.starshipCounter].testStarship.position.set(this.x + this.width * 1.5, this.y + Math.floor((Math.random() * 30) + 1));
+                s[this.starshipCounter].testStarship.visible = true; 
+                this.starshipCounter++;
+                console.log(s);    
+                   
             };
         }
     },
@@ -703,6 +723,7 @@ let planets = {
             this.firePlanet.height = 30;
             this.firePlanet.anchor.set(0.5, 0.5);
             this.firePlanet.position.set(800, 0);
+            this.firePlanet.starshipCounter = 0;
             mainContainer.addChild(this.firePlanet);
         }
    
@@ -714,12 +735,43 @@ let planets = {
             this.firePlanet.mouseout = function() {
                 this.alpha += 1;
             };
+
+            this.firePlanet.click = function(e) {
+                let s = starships.testStarships;
+                s[this.starshipCounter] = new starships.TestStarship();
+                s[this.starshipCounter].testStarship.position.set(this.x + this.width * 1.5, this.y + Math.floor((Math.random() * 30) + 1));
+                s[this.starshipCounter].testStarship.visible = true; 
+                this.starshipCounter++;
+                console.log(s);    
+                   
+            };
         }
     },
 }
 
+/////////////// * Obiekt Stateczków *  //////////////////////////
+
+let starships = {
+
+/////////////////////// Test Starship //////////////////////////
+
+    testStarships : [],
+    TestStarship : class {
+        constructor() {
+            this.testStarship = new PIXI.Sprite.fromImage("files/images/menuPics/placeHolderGreen.png");
+            this.testStarship.width = 15;
+            this.testStarship.height = 15;
+            this.testStarship.anchor.set(0.5, 0.5);
+            this.testStarship.visible = false;
+            mainContainer.addChild(this.testStarship);
+        }
+    }
+}
+
 /////////////// * Grupowane Inicjalizacje elementów Menu *  //////////////////////////
+
 /////////////////////// Całego Menu //////////////////////////
+
 let menuInitializations = function() {
     menu.backgroundInitialization();
     menu.logoInitialization();
@@ -727,10 +779,10 @@ let menuInitializations = function() {
     menu.profilInitialization();
     menu.tutorialInitialization(); 
     menu.musicInitialization();
-    menu.creditsInitialization();
-    
+    menu.creditsInitialization(); 
 };
 /////////////////////// Okno NewGame //////////////////////////
+
 let menuNewGameWindowInitializations = function() {
     menu.secondWindow.backgroundInitialization();
     menu.newGameWindow.playersListSectionInitialization();
@@ -773,7 +825,9 @@ let menuNewGameWindowDestroyers = function() {
 }
 
 /////////////// * Grupowane Inicjalizacje elementów Game *  //////////////////////////
+
 /////////////////////// Całego Game //////////////////////////
+
 let gameInitializations = function() {
     
     
