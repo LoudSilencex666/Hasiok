@@ -16,6 +16,7 @@ let menuStatement = true;
 let gameStatement = false;
 let maps = [];
 
+
 /////////////// * Obiekt całego Menu *  //////////////////////////
 
 let menu = {
@@ -653,6 +654,7 @@ let planets = {
             this.earthPlanet.anchor.set(0.5, 0.5);
             this.earthPlanet.position.set(0, 0);
             this.earthPlanet.starshipCounter = 0;
+            this.earthPlanet.number = 0;
             mainContainer.addChild(this.earthPlanet);
         }
    
@@ -665,14 +667,37 @@ let planets = {
                 this.alpha += 1;
             };
             this.earthPlanet.click = function(e) {
+                chosenPlanet.splice(0, 1, this.number);
+                
                 let s = starships.testStarships;
+                
                 s[this.starshipCounter] = new starships.TestStarship();
                 s[this.starshipCounter].testStarship.position.set(this.x + this.width * 1.5, this.y + Math.floor((Math.random() * 30) + 1));
                 s[this.starshipCounter].testStarship.visible = true; 
                 this.starshipCounter++;
-                console.log(s);    
+
+                chosenPlanet.splice(1, 1, this.starshipCounter);
+                
+                console.log(this.number, chosenPlanet, this.starshipCounter ,starships.testStarships );    
                    
             };
+
+            this.earthPlanet.rightclick = function(e) {
+                this.starshipCounter = chosenPlanet[1];
+     //           planets.earthPlanets[chosenPlanet[0]]. chosenPlanet[1] = 0;
+                let s = starships.testStarships;
+
+                s[this.starshipCounter] = new starships.TestStarship();
+                s[this.starshipCounter].testStarship.position.set(this.x + this.width * 1.5, this.y + Math.floor((Math.random() * 30) + 1));
+                s[this.starshipCounter].testStarship.visible = true; 
+
+            }
+
+            if(chosenPlanet[0] === this.earthPlanet.number) {
+                this.earthPlanet.texture = PIXI.Texture.fromFrame("mapsPositionHover.png");
+            } else if(chosenPlanet[0] !== this.earthPlanet.number) {
+                this.earthPlanet.texture = PIXI.Texture.fromImage("files/images/menuPics/placeHolder.png");
+            }
         }
     },
 
@@ -748,6 +773,9 @@ let planets = {
         }
     },
 }
+
+/////////////// * Wybrana planeta *  //////////////////////////
+let chosenPlanet = [];
 
 /////////////// * Obiekt Stateczków *  //////////////////////////
 
@@ -834,7 +862,8 @@ let gameInitializations = function() {
     for(i = 0; i < chosenMap.earthPlanetsQuantity; i++) {
         planets.earthPlanets[i] = new planets.EarthPlanet();
         planets.earthPlanets[i].earthPlanet.x = chosenMap.earthPlanetsXs[i];
-        planets.earthPlanets[i].earthPlanet.y = chosenMap.earthPlanetsYs[i];    
+        planets.earthPlanets[i].earthPlanet.y = chosenMap.earthPlanetsYs[i];
+        planets.earthPlanets[i].earthPlanet.number = i;     
     }
 
     for(i = 0; i < chosenMap.icePlanetsQuantity; i++) {
